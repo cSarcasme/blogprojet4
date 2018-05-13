@@ -20,7 +20,7 @@
                         <h4 class="card-title"><?= htmlspecialchars($post['title'])?></h4>
                         <h6 class="text-muted">Le <?= date("d/m/Y à H:i",strtotime(htmlspecialchars($post['date']))); ?> par <?= htmlspecialchars($post['name'])?></h6>
                         <p class="card-text"><?= substr(htmlspecialchars($post['content']),0,255);?>...</p>
-                        <a href="index.php?page=post&id"><button type="button" class="btn btn-primary btn-sm">Lire la suite</button></a>
+                        <a href="index.php?page=post&id=<?=htmlspecialchars($post['id'])?>"><button type="button" class="btn btn-primary btn-sm">Lire la suite</button></a>
                     </div>
                 </div>
             </div>
