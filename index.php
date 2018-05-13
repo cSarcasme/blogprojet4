@@ -26,34 +26,14 @@
     include('body/topbar.php');
     ?>
 </header>
-
-<div class="container-fluid">
+<main>
 	<?php
         include('view/frontend/'.$page.'.php');
         
 	?>	
-</div>
+</main>
 
 
 <?php $content = ob_get_clean(); ?>
 
 <?php require('view/frontend/template.php'); ?>
-
-<?php
-
-
-/*try {
-	if (isset($_GET['action'])) {
-        if ($_GET['action'] == 'get_posts') {
-            get_posts();
-		}
-	}
-	else {
-		get_posts();
-	}
-}
-
-catch(Exception $e) {
-    echo 'Erreur : ' . $e->getMessage();
-}
-?>*/

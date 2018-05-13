@@ -10,7 +10,8 @@
     <!-- Bootstrap -->
     <link href="public/css/bootstrap.css" rel="stylesheet">
     <link href="public/css/style.css" rel="stylesheet">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link href="public/css/mdb.min.css" rel="stylesheet">
+	  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 	
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -24,8 +25,13 @@
 	
 	  <?= $content ?>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script type="text/javascript" src="public/js/jquery-3.2.1.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
     <script src="public/js/bootstrap.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="public/js/mdb.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="public/js/popper.min.js"></script>
+    <script type="text/javascript" src="public/js/effect.js"></script>
   </body>
 </html>

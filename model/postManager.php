@@ -4,18 +4,14 @@ namespace ced\Blog\projet4;
 
 require_once("model/manager.php");
 
-class PostManager extends Manager{
-    public function getPosts(){
+class postManager extends Manager{
+    public function getPosts($postId){
         $db=$this->dbConnect();
-        $req = $db->query("SELECT posts.id,posts.title,posts.image,posts.date,posts.content,admins.name FROM posts JOIN admins
-         ON posts.writer=admins.email WHERE posted='1' ORDER BY posts.date DESC LIMIT 0,2 ");
+        $req = $db->prepare("SELECT posts.id,posts.title,posts.image,posts.date,posts.content,admins.name FROM posts JOIN admins
+        ON posts.writer=admins.email WHERE posts.id= ? ");
+        $req->execute(array($postId));
+        $post = $req->fetch();
 
-        /*$results = array();*/
-
-       /* while($rows = $req->fetch()){
-            $results[] = $rows;
-
-        }*/
-        return $req;
+        return $post;
     }
 }
