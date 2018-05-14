@@ -14,4 +14,14 @@ class commentManager extends Manager{
 
         return $affectedLines;
     }
+
+    public function getComments($postId){
+        $db = $this->dbConnect();
+        $comments=$db->prepare("SELECT comments.id, comments.name, comments.email, comments.comment FROM comments 
+        WHERE comments.post_id=? ORDER BY comments.date DESC LIMIT 0,10");  
+        
+        $comments->execute(array($postId));
+
+        return $comments;
+    }
 }

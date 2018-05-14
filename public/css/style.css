@@ -110,10 +110,21 @@
   top:40%;
   width:100%;
 }
-  /*comment blog chapter */
+  /* content blog chapter*/
+
+#chapterTextContent{
+  border-bottom:1px solid black;
+}
+
+  /*comment chapter */
+
+#chapterDateComment{
+  font-size:15px;
+}
+  /*form comment chapter */
 
 .postBlogComment{
-     margin-top:30px;
+     margin-top:5px;
 }
 div label i.fas{
   border:1px solid #6C757D;

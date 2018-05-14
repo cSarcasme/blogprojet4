@@ -10,8 +10,14 @@ function get_post(){
    return $post;
 }
 
-function post_comment($name, $email, $comment){
+function post_comment($postId,$name, $email, $comment){
     $commentManager=new ced\Blog\projet4\commentManager();
-    $comment = $commentManager->postComment($_GET['id'],$_POST['name'],$_POST['name'],$_POST['email'],$_POST['comment']);
+    $affectedLines = $commentManager->postComment($postId,$name, $email, $comment);
+    return $comment;
+}
+
+function get_comments(){
+    $commentManager=new ced\Blog\projet4\commentManager();
+    $comment = $commentManager->getComments($_GET['id']);
     return $comment;
 }

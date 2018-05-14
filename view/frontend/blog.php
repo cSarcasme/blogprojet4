@@ -40,7 +40,7 @@
       <!-- Post data -->
       <p>Par <a class="font-weight-bold"><?=htmlspecialchars($post['name'])?></a>, <a class="text-muted">le <?= date("d/m/Y à H:i",strtotime(htmlspecialchars($post['date']))); ?></a></p>
       <!-- Read more button -->
-      <a href="index.php?page=post&id=<?=htmlspecialchars($post['id'])?>" class="btn btn-primary btn-md">Lire la suite</a>
+      <a href="index.php?page=post&amp;id=<?=htmlspecialchars($post['id'])?>" class="btn btn-primary btn-md">Lire la suite</a>
 
     </div>
     <!-- Grid column -->

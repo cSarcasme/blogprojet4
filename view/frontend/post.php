@@ -5,7 +5,7 @@
         header("Location:index.php?page=error");
     }
     ?>
-    
+<?php $title = "chapitre"?>    
     <section  class="postContentImage" id="postImageChapter">
         <div class="container-fluid">   
             <div class="postContentImage" >
@@ -27,11 +27,28 @@
         <div class="container">
             <div class="row"> 
                 <div class="col-lg-9 col-md-9 col-sm-12" id="textTitlePost">
-                    <p class="lead">Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.</p>
-                    <p class="text"><?= substr(htmlspecialchars($post['content']),0,5000);?></p>
+                    <div id="chapterTextContent">
+                        <p class="lead">Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.</p>
+                        <p class="text"><?= substr(htmlspecialchars($post['content']),0,5000);?></p>
+                    </div>
                     <div class="postBlogComment">
-                        <h4>Laisser un commentaire</h4>
-                        
+                        <h4>Commentaires</h4>
+                        <?php
+                        $comments=get_comments();
+                        foreach($comments as $comment){
+                        ?>
+
+                        <div class="card">
+                            <div class="card-body">
+                            <h5 class="card-title">Par <strong><?=htmlspecialchars($comment['name'])?></strong><span class="text-muted" id="chapterDateComment"> Le <?= date("d/m/Y",strtotime(htmlspecialchars($post['date']))); ?></span> </h5>
+                            <p class="card-text"><?= htmlspecialchars($comment['comment'])?></p>
+                            <a href="#" class="card-link">Card link</a>
+                            <a href="#" class="card-link">Another link</a>
+                            </div>
+                        </div>
+                        <?php
+                        }
+                        ?>
                         <?php
                         if(isset($_POST['submit'])){
                             $name = htmlspecialchars(trim($_POST['name']));
@@ -60,24 +77,19 @@
                                 </div>
                                 <?php
                             }else{
-                                ?>
-                                                      
-                                <div class="alert alert-success"> 
-                                    <?= "<strong>"."REUSSI! "."</strong>"."Votre commentaire a été envoyé."."<br/>";?>
-                                </div>
-
-                                <?php
-                                post_comment($name, $email, $comment);
+                                
                                 ?>
 
-                                <script>
-                                    windows.location.replace("index.php?page=post&id=<?=$_GET['id']?>");
+                               <script>
+                                    windows.location.reload("index.php?page=post&id=<?=$_GET['id']?>");
                                 </script>
                                 <?php
+                                post_comment($_GET['id'],$name, $email, $comment);
                             }
                         }
-                       ?>
-                        <form method="post">
+                        ?>
+                        <h4>Laisser un commentaire</h4>  
+                        <form method="post" action="index.php?page=post&amp;id=<?=$post['id']?>");>
                             <div class="row postBlogComment">
                                 <div class="form-group col-sm-12 col-md-6">
                                     <label for="name"><i class="fas fa-user bg-secondary"></i></label>
