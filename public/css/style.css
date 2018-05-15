@@ -1,5 +1,14 @@
+  /*navbar*/
 #titre {
     border-bottom:2px solid #222222;
+    height:50px;
+}
+#navbarNavDropdown{
+    position:relative;
+}
+#connexion{
+    position:absolute;
+    right:0;
 }
 
 /*effet de hover sur les images card*/
@@ -123,6 +132,12 @@
 }
   /*form comment chapter */
 
+  .colorFondChapter{
+    background:#F7CD71;
+  }
+  .colorFondChapterForm:focus{
+    background:#F7CD71;
+  }
 .postBlogComment{
      margin-top:5px;
 }

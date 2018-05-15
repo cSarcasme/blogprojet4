@@ -7,4 +7,5 @@ function get_posts(){
     $posts = $postManager->getPosts();
 
    return $posts;
+   require('view/frontend/home.php');
 }

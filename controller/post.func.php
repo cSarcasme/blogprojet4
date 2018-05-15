@@ -13,7 +13,8 @@ function get_post(){
 function post_comment($postId,$name, $email, $comment){
     $commentManager=new ced\Blog\projet4\commentManager();
     $affectedLines = $commentManager->postComment($postId,$name, $email, $comment);
-    return $comment;
+    
+    header('Location:index.php?page=post&id=' . $postId);
 }
 
 function get_comments(){

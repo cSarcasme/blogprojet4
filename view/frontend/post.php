@@ -23,7 +23,7 @@
         </div>
     </section>
 
-    <section class="post-content-section">
+    <section class="post-content-section ">
         <div class="container">
             <div class="row"> 
                 <div class="col-lg-9 col-md-9 col-sm-12" id="textTitlePost">
@@ -31,19 +31,19 @@
                         <p class="lead">Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.</p>
                         <p class="text"><?= substr(htmlspecialchars($post['content']),0,5000);?></p>
                     </div>
-                    <div class="postBlogComment">
+                    <div class="postBlogComment ">
                         <h4>Commentaires</h4>
                         <?php
                         $comments=get_comments();
                         foreach($comments as $comment){
                         ?>
 
-                        <div class="card">
+                        <div class="card colorFondChapter mb-3">
                             <div class="card-body">
                             <h5 class="card-title">Par <strong><?=htmlspecialchars($comment['name'])?></strong><span class="text-muted" id="chapterDateComment"> Le <?= date("d/m/Y",strtotime(htmlspecialchars($post['date']))); ?></span> </h5>
                             <p class="card-text"><?= htmlspecialchars($comment['comment'])?></p>
-                            <a href="#" class="card-link">Card link</a>
-                            <a href="#" class="card-link">Another link</a>
+                            <a href="#" class="card-link"></a>
+                            <a href="#" class="card-link"></a>
                             </div>
                         </div>
                         <?php
@@ -76,32 +76,30 @@
                                     ?>
                                 </div>
                                 <?php
-                            }else{
+                            }
+                            else{
                                 
                                 ?>
 
-                               <script>
-                                    windows.location.reload("index.php?page=post&id=<?=$_GET['id']?>");
-                                </script>
                                 <?php
                                 post_comment($_GET['id'],$name, $email, $comment);
                             }
                         }
                         ?>
                         <h4>Laisser un commentaire</h4>  
-                        <form method="post" action="index.php?page=post&amp;id=<?=$post['id']?>");>
+                        <form method="post">
                             <div class="row postBlogComment">
                                 <div class="form-group col-sm-12 col-md-6">
                                     <label for="name"><i class="fas fa-user bg-secondary"></i></label>
-                                    <input type="text" name="name" id="name" placeholder="Nom" class="form"/>
+                                    <input type="text" name="name" id="name" placeholder="Nom" class="form colorFondChapterForm"/>
                                 </div>
                                 <div class="form-group col-sm-12 col-md-6">
-                                    <label for="email"><i class="fas fa-envelope bg-secondary"></i></i></label>
-                                    <input type="text" name="email" id="email" placeholder="Email" class="form"/>
+                                    <label for="email"><i class="fas fa-envelope bg-secondary"></i></label>
+                                    <input type="email" name="email" id="email" placeholder="Email" class="form colorFondChapterForm"/>
                                 </div>
                                 <div class="form-group col-sm-12 col-md-12">
                                     <label for="comment"><i class="fas fa-comment-dots bg-secondary"></i></i></label>
-                                    <textarea name="comment" id="comment" placeholder="Commentaire" class="form"></textarea>
+                                    <textarea name="comment" id="comment" placeholder="Commentaire" class="form colorFondChapterForm"></textarea>
                                 </div>
                                 <div class="col-sm-12">
                                     <button type="submit" name="submit" class="btn btn-primary">Commenter</button>

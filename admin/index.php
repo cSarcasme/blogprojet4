@@ -10,7 +10,7 @@ try{
 		}
 	}
 	else{
-		$page = "home";
+		$page = "dashboard";
     }
     
     $pages_functions = scandir('controller/');
@@ -44,7 +44,6 @@ catch(Exception $e) {
 	?>
 
 </footer>
-
 <?php $content = ob_get_clean(); ?>
 
 <?php require('view/frontend/template.php'); ?>
