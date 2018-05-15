@@ -10,12 +10,6 @@ class homeManager extends Manager{
         $req = $db->query("SELECT posts.id,posts.title,posts.image,posts.date,posts.content,admins.name FROM posts JOIN admins
          ON posts.writer=admins.email WHERE posted='1' ORDER BY posts.date DESC LIMIT 0,6");
 
-        /*$results = array();*/
-
-       /* while($rows = $req->fetch()){
-            $results[] = $rows;
-
-        }*/
         return $req;
     }
 }

@@ -19,6 +19,6 @@ function post_comment($postId,$name, $email, $comment){
 
 function get_comments(){
     $commentManager=new ced\Blog\projet4\commentManager();
-    $comment = $commentManager->getComments($_GET['id']);
-    return $comment;
+    $comments = $commentManager->getComments($_GET['id']);
+    return $comments;
 }
