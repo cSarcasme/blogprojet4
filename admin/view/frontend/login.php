@@ -1,6 +1,9 @@
-<?php $title = 'Login'?>
-
-<?php ob_start(); ?> 
+<?php $title = 'Login';
+if(isset($_SESSION['email'])){
+    header('Location:admin.php?page=dashboard');
+}
+ ob_start()
+?> 
 
 <div class="container-fluid" style="background-color:#f7cd71;">
 
@@ -19,25 +22,28 @@
                         
                         
                         if(isset($_POST['submit'])){
+                            
+                            $loginSubmit=new login;
+                            $result=$loginSubmit->submitLogin($_POST['email'],$_POST['email']);
+                            
                             $email = htmlspecialchars(trim($_POST['email']));
-                            $pseudo = htmlspecialchars(trim($_POST['email']));
                             $password = htmlspecialchars(trim($_POST['password']));
                             $isPasswordCorrect = password_verify($password, $result['password']);
                             
-    
-                            
-                            if((!empty($pseudo) || !empty($email)) &&  !empty($password)){
-                                if($isPasswordCorrect){
-                                    $_SESSION['id'] = $result['id'];
-                                    $_SESSION['pseudo'] or $_SESSION['email']  = $email or $pseudo;
-                                 dashboard();
-                                }
-                                else{
-                                 ?>
+                            if(!empty($email) && !empty($password)){
+                                if(!$result && !$isPasswordCorrect){
+                                    ?>
                                  <div class="alert alert-danger">
                                      <p>Mauvais email ou mot de passe !</p>  
                                  </div>
-                                 <?php
+
+                                 <?php                            
+                                }
+                                else{                                      
+                                    $_SESSION['password']=$result['password'];
+                                    $_SESSION['email']=$result['email'] ;
+                                    $_SESSION['pseudo']=$result['pseudo'];
+                                    header('Location:admin.php?page=dashboard');                                             
                                 }
                              }
                              else{
@@ -52,8 +58,8 @@
                         <form method="post">
                             <div class="row">
                                 <div class="col-12 mt-3">
-                                    <laber for="email"></label>
-                                    <input type="email" name="email" id="email" class="form">                              
+                                    <laber for="email">Email ou pseudo</label>
+                                    <input type="text" name="email" id="email" class="form">                              
                                 </div>
                             
                                 <div class="col-12 mt-3">

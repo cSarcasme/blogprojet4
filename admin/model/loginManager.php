@@ -6,24 +6,13 @@ require_once("model/manager.php");
 
 class loginManager extends Manager{
 
-    public function isAdmin($email,$pseudo,$password){
+    public function is_Admin($email,$pseudo){
         $db = $this->dbConnect();
-        //$isPasswordCorrect=false;
         $req = $db->prepare('SELECT admins.id, admins.name, admins.pseudo, admins.email, admins.password, admins.date, admins.token, admins.role
-          FROM admins WHERE admins.password=? ');
-        $req->execute(array($password));
+          FROM admins WHERE  (admins.email = ? OR admins.pseudo = ?  ) ');
+        $req->execute(array($email,$pseudo));
         $result=$req->fetch();
         
-        return $result;
-        /*
-        if($result){
-            $isPasswordCorrect = password_verify($password, $result['password']);
-            $_SESSION['id'] = $result['id'];
-            $_SESSION['pseudo'] or $_SESSION['email']  = $email or $pseudo;
-            
-            return  $isPasswordCorrect;
-        }
-        */
-        
+        return $result;    
     }
 }

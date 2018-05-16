@@ -50,7 +50,7 @@
   <div class="bg-dark" id="titre">
     <div class="container">
       <div class="row justify-content-center">
-        <h3 class="text-white">BILLET SIMPLE POUR L'ALASKA</h3>
+        <h3 class="text-white"></h3>
       </div>
     </div>
   </div>
