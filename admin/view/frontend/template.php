@@ -10,7 +10,6 @@
     <!-- Bootstrap -->
     <link href="../public/css/bootstrap.css" rel="stylesheet">
     <link href="../public/css/style.css" rel="stylesheet">
-    <link href="public/css/style.css" rel="stylesheet">
 	  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 	
 
@@ -22,12 +21,27 @@
     <![endif]-->
   </head>
   <body>
+  <header>
+      
+      <?php
+      include('body/topbar.php');
+      ?>
+  </header>
+  <main>
+  <?= $content ?>
+  </main>
+
+  <footer>
+      <?php
+      include('body/footer.php');
+      ?>
+  </footer>
     
-	  <?= $content ?>
+	  
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script type="text/javascript" src="../public/js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="public/js/jquery-3.2.1.min.js"></script>
     <!-- Bootstrap core JavaScript -->
     <script src="../public/js/bootstrap.js"></script>
-    <script type="text/javascript" src="/public/js/script.js"></script>
+    <script type="text/javascript" src="public/js/script.js"></script>
   </body>
 </html>

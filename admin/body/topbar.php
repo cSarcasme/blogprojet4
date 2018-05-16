@@ -1,7 +1,7 @@
-<div class="container-fluid bg-dark">
-  <nav class="navbar navbar-expand-lg navbar-dark " >
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="index.php?page=home">
-      <img src="../public/images/jf-logo.jpg" width="30" height="30" class="d-inline-block align-top" alt=""> Jean Forteroche
+      <img src="public/images/jf-logo.jpg" width="30" height="30" class="d-inline-block align-top" alt=""> Jean Forteroche
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
       aria-expanded="false" aria-label="Toggle navigation">
@@ -38,7 +38,7 @@
           <i class="fas fa-user"></i> Inscription</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="#">
+          <a class="nav-link active" href="admin/index.php?page=login">
           <i class="fas fa-sign-in-alt"></i> Connexion</a>
         </li>
       </ul>
@@ -50,9 +50,8 @@
   <div class="bg-dark" id="titre">
     <div class="container">
       <div class="row justify-content-center">
-        <h3 class="text-white"></h3>
+        <h3 class="text-white">BILLET SIMPLE POUR L'ALASKA</h3>
       </div>
     </div>
   </div>
 
-</div>

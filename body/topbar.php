@@ -1,4 +1,4 @@
-<div class="container-fluid">
+
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="index.php?page=home">
       <img src="public/images/jf-logo.jpg" width="30" height="30" class="d-inline-block align-top" alt=""> Jean Forteroche
@@ -38,7 +38,7 @@
           <i class="fas fa-user"></i> Inscription</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="#">
+          <a class="nav-link active" href="admin/index.php?page=login">
           <i class="fas fa-sign-in-alt"></i> Connexion</a>
         </li>
       </ul>
@@ -55,4 +55,3 @@
     </div>
   </div>
 
-</div>

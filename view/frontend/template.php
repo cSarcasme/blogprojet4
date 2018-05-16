@@ -21,8 +21,23 @@
     <![endif]-->
   </head>
   <body>
+  <header>
+      
+      <?php
+      include('body/topbar.php');
+      ?>
+  </header>
+  <main>
+  <?= $content ?>
+  </main>
+
+  <footer>
+      <?php
+      include('body/footer.php');
+      ?>
+  </footer>
     
-	  <?= $content ?>
+	  
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script type="text/javascript" src="public/js/jquery-3.2.1.min.js"></script>
     <!-- Bootstrap core JavaScript -->

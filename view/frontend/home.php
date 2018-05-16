@@ -1,12 +1,14 @@
 
 <?php $title = "Accueil"?>
 
+<?php ob_start(); ?>
+
 <div class="container">
     <h1>Page d'accueil</h1>
     <div class="row">
 
         <?php
-            $posts = get_posts();
+
             foreach($posts as $post){
         ?>
 
@@ -32,4 +34,8 @@
             ?>
     </div>
 </div>
+
+<?php $content = ob_get_clean(); ?>
+
+<?php require('view/frontend/template.php'); ?>
 
