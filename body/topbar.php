@@ -38,7 +38,7 @@
           <i class="fas fa-user"></i> Inscription</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="admin/index.php?page=login">
+          <a class="nav-link active" href="admin/admin.php?page=login">
           <i class="fas fa-sign-in-alt"></i> Connexion</a>
         </li>
       </ul>

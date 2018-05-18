@@ -38,3 +38,15 @@ function dashboard(){
     
     require('view/frontend/dashboard.php');
 }
+
+function deconnexion(){
+    require('view/frontend/deconnexion.php');
+}
+
+function writte(){
+    require('view/frontend/writte.php');
+}
+
+function config(){
+    require('view/frontend/config.php');
+}

@@ -23,19 +23,27 @@
   </head>
   <body>
   <header>
-      
+      <div class="container-fluid">
       <?php
-      include('body/topbar.php');
+      if($_GET['page']=='login'){
+        include('body/topbar.php');
+      }
+      else{
+        include('body/topbar2.php');
+      }
       ?>
+      </div>
   </header>
   <main>
   <?= $content ?>
   </main>
 
   <footer>
+      <div class="container-fluid">
       <?php
       include('body/footer.php');
       ?>
+      </div>
   </footer>
     
 	  
@@ -44,5 +52,14 @@
     <!-- Bootstrap core JavaScript -->
     <script src="../public/js/bootstrap.js"></script>
     <script type="text/javascript" src="public/js/script.js"></script>
+    <script src='https://cloud.tinymce.com/stable/tinymce.min.js'></script>
+    <script>
+  tinymce.init({
+    selector: 'textarea',
+    toolbar:'code',
+    plugins:'code'
+
+  });
+  </script>
   </body>
 </html>

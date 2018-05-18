@@ -33,6 +33,15 @@ try{
 		elseif ($_GET['page'] == 'login') {
 				login();
 		}
+		elseif ($_GET['page'] == 'deconnexion') {
+			deconnexion();
+		}
+		elseif ($_GET['page'] == 'writte') {
+			writte();
+		}
+		elseif ($_GET['page'] == 'config') {
+			config();
+		}
 		elseif(in_array($_GET['page'],$pages)){
 				$page=$_GET['page'];
 		}
