@@ -17,11 +17,19 @@ class commentManager extends Manager{
 
     public function getComments($postId){
         $db = $this->dbConnect();
-        $comments=$db->prepare("SELECT comments.id, comments.name, comments.email, comments.comment FROM comments 
+        $comments=$db->prepare("SELECT comments.id, comments.name, comments.email, comments.comment ,comments.seen FROM comments 
         WHERE comments.post_id=? ORDER BY comments.date DESC LIMIT 0,10");  
         
         $comments->execute(array($postId));
 
         return $comments;
+    }
+
+    public function updateComment($post_id){
+        $db = $this-> dbConnect();
+        $req =$db->prepare('UPDATE   comments SET comments.seen = "2" WHERE comments.id=?');
+        $req->execute(array($post_id));
+        
+        return $req;
     }
 }

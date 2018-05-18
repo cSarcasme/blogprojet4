@@ -5,35 +5,46 @@
 <?php// var_dump($_SESSION) ?>
 </pre>-->
 
-<h1 class="text-center mt-4">TABLEAU DE BORD</h1>
+
 <div class="container">
+<h1 class="text-center mt-4">TABLEAU DE BORD</h1>
     <div class="row mt-4">
-        <div class="col-sm-4">
+        <div class="col-12 col-sm-12 col-md-4">
             <div class="card bg-secondary">
                 <div class="card-header"></div>
                 <div class="card-body">
-                    <h5 class="card-title text-center">Publications</h5>
-                    <p class="card-text cardDashboard"><?= $countPosts['idPosts'] ?></p>
+                    <h5 class="card-title text-center text-white"><strong>Publications</strong></h5>
+                    <h3 class="card-text cardDashboard text-white"><?= $countPosts['idPosts'] ?></h3>
                 </div>
             </div>
         </div>
 
-        <div class="col-sm-4">
+        <div class="col-12 col-sm-12 col-md-4">
             <div class="card bg-info">
                 <div class="card-header"></div>
                 <div class="card-body">
-                    <h5 class="card-title text-center">Commentaires</h5>
-                    <p class="card-text cardDashboard"><?= $countComments['idComments'] ?></p>
+                    <h5 class="card-title text-center text-white"><strong>Commentaires</strong></h5>
+                    <div class="row">
+                        <div class="col-4">
+                            <h3 class="card-text cardDashboard text-white"><?= $countComments['idComments'] ?></h3>
+                        </div>
+                        <div class="col-4">
+                            <h3 class="card-text cardDashboard text-center text-white"><span class="size2 badge badge-danger" id="commentNewSignal"><?= $countCommentsSeenSignal['idComments'] ?> abus</span></h3>
+                        </div>
+                        <div class="col-4">
+                            <h3 class="card-text cardDashboard text-right text-white"><span class="size2 badge badge-success" id="commentNew"><?= $countCommentsSeen['idComments'] ?> nouveau</span></h3>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div class="col-sm-4">
+        <div class="col-12 col-sm-12 col-md-4">
             <div class="card" style="background-color:#F7CD71;">
                 <div class="card-header"></div>
                 <div class="card-body">
-                    <h5 class="card-title text-center ">Administrateurs</h5>
-                    <p class="card-text cardDashboard"><?= $countAdmins['idAdmins'] ?></p>
+                    <h5 class="card-title text-center text-white"><strong>Administrateurs</strong></h5>
+                    <h3 class="card-text cardDashboard text-white"><?= $countAdmins['idAdmins'] ?></K>
                 </div>
             </div>
         </div>
@@ -42,21 +53,133 @@
   <p>Retrouvez tous vox nouveaux commentaires .</p>
     <table class="table">
     <thead class="thead-dark">
-      <tr>
-        <th>Chapitres</th>
-        <th>Commentaires</th>
-        <th>Actions</th>
-      </tr>
+        <tr>
+            <th>Chapitres</th>
+            <th>Commentaires</th>
+            <th>Actions</th>
+        </tr>
     </thead>
     <tbody>
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
+        <?php foreach($comments as $comment){
+            if($comment['seen']==2){}
+        ?> 
+
+        <tr>
+            <td><?=$comment['title']?></td>
+            <td><?= substr($comment['comment'],0,50)?></td>
+            <td>
+                <!-- bouton update comment dashboard-->
+                <a href="#" id="<?=$comment['id']?>" data-toggle="modal" data-target="#mymodalok<?php echo $comment['id'] ?>"><i class="fas fa-check fa-2x text-success"></i></a>
+                
+                <!-- The Modal update comment -->
+                <div class="modal fade" id="mymodalok<?php echo $comment['id'] ?>">
+                    <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                    
+                        <div class="modal-header">
+                        <h4 class="modal-title">voulez vous valider ce commentaire</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        
+                        <div class="modal-body">
+                            <p>Par <strong><?=$comment['name']?></strong> <span class="size">Le <?= date("d/m/Y H:i ",strtotime(htmlspecialchars($comment['date'])))?></span></p>
+                            <p><?=$comment['comment']?></p>
+                        </div>
+                        
+                        <div class="modal-footer">
+
+                            <?php
+                            if(isset($_POST['update'])){
+                                $update_Comment = new deleteUpdateComment();
+                                $updateComment = $update_Comment -> update_Comments($comment['id']);
+                                header('Location:admin.php?page=dashboard');
+                                return $updateComment;
+                            }
+                            ?>
+
+                            <form method="post">
+                                <button type="submit" name="update" class="btn btn-success">Oui</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Non</button>
+                            </form>
+                        </div>
+                        
+                    </div>
+                    </div>
+                </div>
+
+                <!-- bouton delete comment dashboard-->
+                <a href="#" id="<?=$comment['id']?>" data-toggle="modal" data-target="#mymodaldelete<?php echo $comment['id'] ?>"><i class="fas fa-trash fa-2x text-danger"></i></a>
+
+                <!-- The Modal delete comment -->
+                <div class="modal fade" id="mymodaldelete<?php echo $comment['id'] ?>">
+                    <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                    
+                        <div class="modal-header">
+                        <h4 class="modal-title">voulez vous supprimer ce commentaire</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        
+                        <div class="modal-body">
+                            <p>Par <strong><?=$comment['name']?></strong> <span style="font-size:12px;">Le <?= date("d/m/Y H:i ",strtotime(htmlspecialchars($comment['date'])))?></span></p>
+                            <p><?=$comment['comment']?></p>
+                        </div>
+                        
+                        <div class="modal-footer">
+                            <?php
+                            if(isset($_POST['delete'])){
+                                $delete_Comment = new deleteUpdateComment();
+                                $deleteComment = $delete_Comment -> delete_Comments($comment['id']);
+                                header('Location:admin.php?page=dashboard');
+                                return $deleteComment;
+                            }
+                            ?>
+                            <form method="post">    
+                                <button type="submit" name="delete" class="btn btn-danger">Oui</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Non</button>
+                                <?= $comment['id']?>
+                            </form>
+                        </div>
+                        
+                    </div>
+                    </div>
+                </div>
+
+                <!-- bouton see comment dashboard-->
+                <a href="#" id="<?=$comment['id']?>" data-toggle="modal" data-target="#mymodalsee<?php echo $comment['id'] ?>" ><i  class="fas fa-eye fa-2x text-primary" ></i></a>
+
+                <!-- The Modal see comment -->
+                <div class="modal fade" id="mymodalsee<?php echo $comment['id'] ?>">
+                    <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                    
+                        <div class="modal-header">
+                        <h4 class="modal-title"><?=$comment['title']?></h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        
+                        <div class="modal-body">
+                            <p>Par <strong><?=$comment['name']?></strong> <span style="size">Le <?= date("d/m/Y H:i ",strtotime(htmlspecialchars($comment['date'])))?></span></p>
+                            <p><?=$comment['comment']?></p>
+                        </div>
+                        
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                        </div>
+                        
+                    </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+
+        <?php
+        }
+        ?>
     </tbody>
   </table>
 </div>
+
 
 <?php $content = ob_get_clean(); ?>
 

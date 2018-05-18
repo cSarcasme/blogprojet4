@@ -26,12 +26,18 @@ function postChapter(){
     $commentManager=new ced\Blog\projet4\commentManager();
     $comments = $commentManager->getComments($_GET['id']);
 
-    require('view/frontend/post.php');
+       require('view/frontend/post.php');
 }
 
 function post_comment($postId,$name, $email, $comment){
     $commentManager=new ced\Blog\projet4\commentManager();
     $affectedLines = $commentManager->postComment($postId,$name, $email, $comment);
     
+    header('Location:index.php?page=post&id=' . $postId);
+}
+
+function update_CommentSeen($postId,$post_id){
+    $commentManager=new ced\Blog\projet4\commentManager();
+    $updateComment = $commentManager -> updateComment($post_id);    
     header('Location:index.php?page=post&id=' . $postId);
 }

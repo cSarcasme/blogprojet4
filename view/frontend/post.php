@@ -33,13 +33,16 @@
                         <?php
                 
                         foreach($comments as $comment){
+                            
+                                
+                            
                         ?>
 
                         <div class="card colorFondChapter mb-3">
                             <div class="card-body">
                             <h5 class="card-title">Par <strong><?=htmlspecialchars($comment['name'])?></strong><span class="text-muted" id="chapterDateComment"> Le <?= date("d/m/Y",strtotime(htmlspecialchars($post['date']))); ?></span> </h5>
                             <p class="card-text"><?= htmlspecialchars($comment['comment'])?></p>
-                            <a href="#" class="card-link" style="float:right;"><i class="fas fa-flag mr-1"></i>Signaler un abus</a>
+                            <a href="index.php?page=click&amp;id=<?=$post['id']?>&amp;idc=<?=$comment['id']?>" name="mise" class="card-link" id="signal" style="float:right;"><i class="fas fa-flag mr-1"></i>Signaler un abus</a>
                             <a href="#" class="card-link ml-2"><i class="fas fa-thumbs-up fa-sm"></i>+</a>
                             <a href="#" class="card-link ml-2"><i class="fas fa-thumbs-down fa-sm"></i>+</a>
                             </div>

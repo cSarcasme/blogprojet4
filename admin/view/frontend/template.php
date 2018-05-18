@@ -40,7 +40,7 @@
     
 	  
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script type="text/javascript" src="public/js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="../public/js/jquery-3.2.1.min.js"></script>
     <!-- Bootstrap core JavaScript -->
     <script src="../public/js/bootstrap.js"></script>
     <script type="text/javascript" src="public/js/script.js"></script>

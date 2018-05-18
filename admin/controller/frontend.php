@@ -18,7 +18,23 @@ function login(){
 function dashboard(){
     $dashboardManager = new ced\Blog\projet4\dashboardManager();
     $countAdmins = $dashboardManager->tableCountAdmins();
-    $countComments = $dashboardManager->tableCounComments();
+    $countComments = $dashboardManager->tableCountComments();
+    $countCommentsSeen = $dashboardManager->tableCountCommentsSeen();
+    $countCommentsSeenSignal = $dashboardManager->tableCountCommentsSeenSignal();
     $countPosts = $dashboardManager->tableCountPosts();
+    $comments = $dashboardManager -> getComments();
+
+    class deleteUpdateComment{
+        public function delete_Comments($postId){
+            $dashboardManager = new ced\Blog\projet4\dashboardManager();
+            $updateComment = $dashboardManager -> deleteComments($postId);    
+        }
+        public function update_Comments($postId){
+            $dashboardManager = new ced\Blog\projet4\dashboardManager();
+            $deleteComment = $dashboardManager -> updateComments($postId);    
+        }
+
+    }
+    
     require('view/frontend/dashboard.php');
 }

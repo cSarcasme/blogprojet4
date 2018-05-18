@@ -30,6 +30,11 @@ try{
 		elseif ($_GET['page'] == 'post') {
 			postChapter();
 		}
+		elseif($_GET["page"]== 'click'){
+			if ((isset($_GET['id']) && $_GET['id'] > 0) && (isset($_GET['idc']) && $_GET['idc'] > 0)) {
+			update_CommentSeen($_GET['id'], $_GET['idc']);
+			}
+		}
 		elseif(in_array($_GET['page'],$pages)){
 			$page=$_GET['page'];
 		}
