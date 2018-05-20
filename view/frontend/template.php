@@ -22,10 +22,11 @@
   </head>
   <body>
   <header>
-      
+      <div class="container-fluid">
       <?php
       include('body/topbar.php');
       ?>
+      </div>
   </header>
   <main>
   <?= $content ?>

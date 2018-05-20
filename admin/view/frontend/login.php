@@ -5,11 +5,11 @@ if(isset($_SESSION['email'])){
  ob_start()
 ?> 
 
-<div class="container-fluid" style="background-color:#f7cd71;">
+<div class="container">
 
     <div class="row justify-content-center">
-        <div class="col-auto mt-5">
-            <div class="card border border-dark" style="width: 18rem;">
+        <div class="col-auto mt-5 mb-5">
+            <div class="card border border-dark" style="width: 20rem;">
                 <div class="row ">
                     <div class="col-6 offset-3">
                         <img class="card-img-top" src="../public/images/admin.png" alt="Card image cap">
@@ -33,8 +33,8 @@ if(isset($_SESSION['email'])){
                             if(!empty($email) && !empty($password)){
                                 if(!$result){
                                     ?>
-                                 <div class="alert alert-danger">
-                                     <p>Mauvais email ou mot de passe !</p>  
+                                 <div class="alert alert-danger size1 text-center">
+                                     Mauvais email ou mot de passe ! 
                                  </div>
 
                                  <?php                            
@@ -50,8 +50,8 @@ if(isset($_SESSION['email'])){
                                     else{
                                         
                                         ?>
-                                        <div class="alert alert-danger">
-                                            <p>Mauvais email ou mot de passe !</p>  
+                                        <div class="alert alert-danger size1 text-center">
+                                            Mauvais email ou mot de passe ! 
                                         </div>
        
                                         <?php 
@@ -60,8 +60,8 @@ if(isset($_SESSION['email'])){
                              }
                              else{
                                  ?>
-                                 <div class="alert alert-danger">
-                                     <p>Tous les champs ne sont pas remplis</p>  
+                                 <div class="alert alert-danger size1 text-center">
+                                     Tous les champs ne sont pas remplis !  
                                  </div>
                                  <?php
                              }
@@ -84,7 +84,7 @@ if(isset($_SESSION['email'])){
                                 </div>
 
                                 <div class="col-12 text-center mt-4" id="buttonLogin" >
-                                    <button  type="submit" name="submit" id="submit" class="btn btn-primary ">SE CONNECTER</button>
+                                    <button  type="submit" name="submit" id="submit" class="btn btn-info ">SE CONNECTER</button>
                                 </div>
                             </div>
                         </form>

@@ -25,7 +25,7 @@
   <header>
       <div class="container-fluid">
       <?php
-      if($_GET['page']=='login'){
+      if(isset($_GET['page']) && $_GET['page']=='login'){
         include('body/topbar.php');
       }
       else{
@@ -52,12 +52,33 @@
     <!-- Bootstrap core JavaScript -->
     <script src="../public/js/bootstrap.js"></script>
     <script type="text/javascript" src="public/js/script.js"></script>
-    <script src='https://cloud.tinymce.com/stable/tinymce.min.js'></script>
+    <script type="text/javascript" src="public/js/tinymce/tinymce.js">></script>
     <script>
   tinymce.init({
+    //selector: 'textarea ',
+    //theme: 'modern',
+    //toolbar:" forecolor backcolor code restoredraft emoticons fullscreen",
+    //plugins:"code textcolor autoresize autosave emoticons fullscreen",
+
     selector: 'textarea',
-    toolbar:'code',
-    plugins:'code'
+  height: 300,
+  theme: 'modern',
+  plugins: 'print preview fullpage searchreplace directionality code visualblocks visualchars fullscreen image  charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists textcolor wordcount imagetools contextmenu colorpicker textpattern help',
+  toolbar1: 'formatselect | bold italic strikethrough forecolor backcolor | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent  | removeformat',
+  image_advtab: true,
+  templates: [
+    { title: 'Test template 1', content: 'Test 1' },
+    { title: 'Test template 2', content: 'Test 2' }
+  ],
+  content_css: [
+    '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
+    '//www.tinymce.com/css/codepen.min.css'
+  ]
+    
+    
+    
+   
+   
 
   });
   </script>

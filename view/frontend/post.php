@@ -28,14 +28,36 @@
                         <p class="lead">Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.</p>
                         <p class="text"><?= substr(htmlspecialchars($post['content']),0,5000);?></p>
                     </div>
-                    <div class="postBlogComment ">
+                </div>
+                <div class="col-lg-3  col-md-3 col-sm-12">
+                    <div class="well">
+                        <h2>Autheur</h2>    
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna</p>
+                        <a href="#" class="btn btn-default">Read more</a>
+                    </div>
+                 <!--   <div class="well">
+                        <h2>Chapitre</h2>
+                        <ul class="nav flex-column nav-tabs">
+                            <li class="nav-item ">
+                                <a class="nav-link" href="#">Chapitre 1</a>
+                            </li>
+                            <li class="nav-item bg-dark">
+                                <a class="nav-link" href="#">Chapitre 2</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#">Chapitre 1</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#">Dis</a>
+                            </li>
+                        </ul>
+                    </div>-->
+                </div>        
+                    <div class="col-lg-9 col-md-9 col-sm-12 ">
                         <h4>Commentaires</h4>
-                        <?php
-                
-                        foreach($comments as $comment){
-                            
-                                
-                            
+
+                        <?php               
+                        foreach($comments as $comment){                        
                         ?>
 
                         <div class="card colorFondChapter mb-3">
@@ -91,48 +113,24 @@
                         <form method="post">
                             <div class="row postBlogComment">
                                 <div class="form-group col-sm-12 col-md-6">
-                                    <label for="name"><i class="fas fa-user bg-secondary"></i></label>
-                                    <input type="text" name="name" id="name" placeholder="Nom" class="form colorFondChapterForm"/>
+                                    <label for="name"><i class="fas fa-user bg-info text-white p-2"></i></label>
+                                    <input type="text" name="name" id="name" placeholder="Nom" class="form"/>
                                 </div>
                                 <div class="form-group col-sm-12 col-md-6">
-                                    <label for="email"><i class="fas fa-envelope bg-secondary"></i></label>
-                                    <input type="email" name="email" id="email" placeholder="Email" class="form colorFondChapterForm"/>
+                                    <label for="email"><i class="fas fa-envelope bg-info text-white p-2"></i></label>
+                                    <input type="email" name="email" id="email" placeholder="Email" class="form"/>
                                 </div>
                                 <div class="form-group col-sm-12 col-md-12">
-                                    <label for="comment"><i class="fas fa-comment-dots bg-secondary"></i></i></label>
-                                    <textarea name="comment" id="comment" placeholder="Commentaire" class="form colorFondChapterForm"></textarea>
+                                    <label for="comment"><i class="fas fa-comment-dots bg-info text-white p-2"></i></i></label>
+                                    <textarea name="comment" id="comment" placeholder="Commentaire" class="form"></textarea>
                                 </div>
                                 <div class="col-sm-12">
-                                    <button type="submit" name="submit" class="btn btn-primary">Commenter</button>
+                                    <button type="submit" name="submit" class="btn btn-info">Commenter</button>
                                 </div>
                             </div>
                         </form>
                     </div>
-                </div>
-                <div class="col-lg-3  col-md-3 col-sm-12">
-                    <div class="well">
-                        <h2>Autheur</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna</p>
-                        <a href="#" class="btn btn-default">Read more</a>
-                    </div>
-                    <div class="well">
-                        <h2>Chapitre</h2>
-                        <ul class="nav flex-column nav-tabs">
-                            <li class="nav-item ">
-                            <a class="nav-link" href="#">Chapitre 1</a>
-                            </li>
-                            <li class="nav-item bg-dark">
-                            <a class="nav-link" href="#">Chapitre 2</a>
-                            </li>
-                            <li class="nav-item">
-                            <a class="nav-link active" href="#">Chapitre 1</a>
-                            </li>
-                            <li class="nav-item">
-                            <a class="nav-link active" href="#">Dis</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+                            
             </div>
         </div> 
     </section>

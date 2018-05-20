@@ -28,7 +28,7 @@
             <?php  
             if(isset($_GET['page']) && $_GET['page']=='dashboard'){
             ?>
-                <i class="fas fa-th-large fa-2x text-danger p-1 pl-2 pr-2 mr-2 bg-white "></i>
+                <i class="fas fa-th-large fa-2x text-danger p-1 pl-2 pr-2 mr-2 bg-white"></i>
             <?php 
             }
             else{

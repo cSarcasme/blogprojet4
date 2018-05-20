@@ -2,6 +2,7 @@
 
 require_once('model/loginManager.php');
 require_once('model/dashboardManager.php');
+require_once('model/writteManager.php');
 
 function login(){
 
@@ -33,7 +34,6 @@ function dashboard(){
             $dashboardManager = new ced\Blog\projet4\dashboardManager();
             $deleteComment = $dashboardManager -> updateComments($postId);    
         }
-
     }
     
     require('view/frontend/dashboard.php');
@@ -45,6 +45,13 @@ function deconnexion(){
 
 function writte(){
     require('view/frontend/writte.php');
+}
+
+function post_Post($title, $content, $image, $posted){
+    $postManager=new ced\Blog\projet4\writteManager();
+    $affectedLines = $postManager->postPost($title, $content, $image, $posted);
+    
+    header('Location:admin.php?page=dashboard');
 }
 
 function config(){
