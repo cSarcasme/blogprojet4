@@ -26,7 +26,7 @@
                 <div class="col-lg-9 col-md-9 col-sm-12" id="textTitlePost">
                     <div id="chapterTextContent">
                         <p class="lead">Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.</p>
-                        <p class="text"><?= substr(htmlspecialchars($post['content']),0,5000);?></p>
+                        <p class="text"><?= substr($post['content'],0,5000);?></p>
                     </div>
                 </div>
                 <div class="col-lg-3  col-md-3 col-sm-12">

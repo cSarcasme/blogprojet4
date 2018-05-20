@@ -16,12 +16,12 @@
                 <?php
                     if(isset($_POST['postArticle'])){
                         $title=htmlspecialchars($_POST['titre']);
-                        $content=htmlspecialchars($_POST['contenu']);
-                        $posted=($_POST['checkbox']);
-                        $image=$_FILES['file'];
+                        $content=html_entity_decode(htmlspecialchars($_POST['contenu']));
+                        $posted=(isset($_POST['checkbox']));
+                        $writer=$_SESSION['email'];
                         $errors=array();
 
-                        if(isset($posted)){
+                        if($posted){
                             $posted="1";
                         }
                         else{
@@ -32,15 +32,16 @@
                             $errors['empty'] = "Veuillez remplir tous les champs";
                         }
 
-                        if (isset($image) AND $image['error'] == 0){
+                        if (isset($_FILES['file']) AND $_FILES['file']['error'] == 0){
                             if ($_FILES['file']['size'] <= 1000000){
 
-                                $infosfichier = pathinfo($image['name']);
+                                $infosfichier = pathinfo($_FILES['file']['name']);
                                 $extension_upload = $infosfichier['extension'];
                                 $extensions_autorisees = array('jpg', 'jpeg', 'gif', 'png');
                                 
                                 if (in_array($extension_upload, $extensions_autorisees)){
-                                    move_uploaded_file($image['tmp_name'], '../public/images/' . basename($_FILES['file']['name']));
+                                    move_uploaded_file($_FILES['file']['tmp_name'], '../public/images/posts/' . basename($_FILES['file']['name']));
+                                    $image=basename($_FILES['file']['name']);
                                 } 
                                 else{
                                     $errors['format'] = "Format de fichier non autorisé";
@@ -50,8 +51,10 @@
                                 $errors['size'] = "Image qui dépasse la taille autorisé";
                             }
                         }
-                        
-                        
+                        else{
+                            $image = 'post.png' ;
+                        }
+
                         if(!empty($errors)){
                             ?>
 
@@ -65,7 +68,7 @@
                             <?php
                         }
                         else{
-                            post_Post($title, $content, $image, $posted);
+                            post_Post($title, $content,$writer, $image, $posted);
                         }
                     }
                 ?>
