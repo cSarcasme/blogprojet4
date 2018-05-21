@@ -15,11 +15,9 @@
                         <h3 class="card-text cardDashboard text-white"><?= $countPosts['idPosts'] ?></h3>
                     </div>
                 </div>
-                <form method="post">
-                    <div class="row justify-content-center mt-2">
-                        <button type="submit"  name="btnPubli" class="btn btn-secondary">Publications</button>
-                    </div>    
-                </form>
+                <div class="row justify-content-center mt-2">
+                    <a href="admin.php?page=publications.dash&amp;p=1"><button type="button"   class="btn btn-secondary">Publications</button></a>
+                </div>    
             </div>
             <!-- Comment-->
             <div class="col-12 col-sm-12 col-md-4 mb-2">
@@ -30,11 +28,9 @@
                         <h3 class="card-text cardDashboard text-white"><?= $countComments['idComments'] ?></h3>
                     </div>
                 </div>
-                <form method="post">
                 <div class="row justify-content-center mt-2">
-                <button type="submit" name="btnComment" class="btn btn-info">Commentaires</button>
+                    <a href="admin.php?page=dashboard"><button type="button"  class="btn btn-info">Commentaires</button></a>
                 </div>               
-                </form>
             </div>
             <!-- Admin-->
             <div class="col-12 col-sm-12 col-md-4 mb-2">
@@ -45,16 +41,11 @@
                         <h3 class="card-text cardDashboard text-white"><?= $countAdmins['idAdmins'] ?></K>
                     </div>
                 </div>
-                <form method="post">
-                    <div class="row justify-content-center mt-2">
-                    <button type="button" class="btn btn-warning text-white justify-content-center" style="background-color:#F7CD71;" >Administrateurs</button>                  
-                    </div>
-                </form>
+                <div class="row justify-content-center mt-2">
+                    <a href="admin.php?page=admins.dash"><button type="button" class="btn btn-warning text-white" style="background-color:#F7CD71;" >Administrateurs</button></a>                  
+                </div>
             </div>
-                <!-- Part Comment when i click on commentaires table comment appear -->
-             <?php
-             if(isset($_POST['btnComment'])){
-            ?>
+           
             <div class="col-12">
                 <h2 class="mt-4">Commentaires nons  lus</h2>
             </div>
@@ -209,108 +200,70 @@
 
                     </tbody>
             </table>
-            <?php
-             }
-             if(isset($_POST['btnPubli'])){               
-             ?>
-             <div class="col-12">
-                <h2 class="mt-4">Mes publications</h2>
-            </div>
-                   
-            <div class="container mt-3"> 
-                <div class="d-flex mb-3 ">
-                    <div class="mr-auto">Retrouvez toutes vos publications</div>
-                    <div class=" size3 badge badge-danger mr-3" id="commentNewSignal"><?= $countPostsNoPublish['idPosts'] ?>/NP </div>
-                    <div class="size3 badge badge-success" id="commentNew"><?= $countPostsPublish['idPosts'] ?>/P</div>
+            <!-- pagination of the board -->
+            <div class="container">
+                <div class="row justify-content-center">
+                    <nav aria-label="Page navigation example">               
+                    <ul class="pagination ">
+                        <!--decrease harrow left-->
+                        <?php if (isset($_GET["p"]) && $_GET['p']>1 && $_GET['p']<=$nbPages) {
+                            ?>
+                        <li class="page-item">
+                            <a class="page-link" href="admin.php?page=dashboard&amp;p=<?=$_GET["p"]-1?>" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                        </li>
+                        <?php
+                        }
+                        else{
+                        ?>
+                        <li class="page-item">
+                            <a class="page-link" href="admin.php?page=dashboard&amp;p=<?=$_GET["p"]=1?>" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                        </li>
+                        <?php
+                        }
+                        ?>
+                        <!--number pagination-->
+                        <?php
+                        for($i=1; $i<=$nbPages; $i++){
+                        ?>
+                            <li class="page-item"><a class="page-link" href="admin.php?page=dashboard&amp;p=<?=$i?>"><?=$i?></a></li>
+                        <?php
+                        }
+                        ?>
+                        <!--increase harrow right-->
+                        <?php
+                        if (isset($_GET["p"]) && $_GET['p']>0 && $_GET['p']<$nbPages) {                           
+                        ?>
+                        <li class="page-item">
+                        <a class="page-link" href="admin.php?page=dashboard&amp;p=<?=$_GET["p"]+1?>" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                        </li>
+                        <?php
+                        }
+                        else{
+                            ?>
+                             <li class="page-item">
+                        <a class="page-link" href="admin.php?page=dashboard&amp;p=<?=$_GET["p"]=$nbPages?>" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                            <span class="sr-only">Next</span>
+                        </a>;
+                        <?php
+                        }
+                        ?>
+                    </ul>            
+                    </nav>
                 </div>
             </div>
-
-                        <table class="table">
-                <thead class="thead-dark">
-                    <tr>
-                        <th>Titre</th>
-                        <th>Contenu</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-
-                    <?php 
-                    foreach($posts as $post){                       
-                    ?> 
-                    <?php  
-                    if($post['posted']=='0'){
-                    ?>
-                        <tr style="background-color:#ffd3d3;">
-                    <?php 
-                    }
-                    else{
-                    ?>
-                        <tr style="background-color:#d6ffd8;">
-                    <?php
-                    } 
-                    ?>
-                    
-                        <td><?=substr($post['title'],0,35)?></td>
-                        <td><?= substr($post['content'],0,50)?>...</td>
-                        <td>
-                            <!-- bouton valid comment dashboard-->
-                            <a href="#" data-toggle="modal" data-target="#mymodalok<?php echo $post['id'] ?>"><i class="fas fa-check fa-2x text-success"></i></a>
-                            
-                            <!-- The Modal valid comment -->
-                            <div class="modal fade" id="mymodalok<?php echo $post['id'] ?>">
-                                <div class="modal-dialog modal-dialog-centered ">
-                                    <div class="modal-content modalPublish">
-                                    
-                                        <div class="modal-header">
-                                            <h4 class="modal-title">Voulez vous publier ce commentaire</h4>
-                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                        </div>
-                                        
-                                        <div class="modal-body">
-                                            <p><strong><?=$post['title']?></strong> <span class="size text-muted">Le <?= date("d/m/Y H:i ",strtotime(htmlspecialchars($post['date'])))?></span></p>
-                                            <p><em><?=substr($post['content'],0,300)?>...</em></p>
-                                            <p class="size1 text-right">De <span class="text-info"><?=$post['name']?></span></p>
-                                        </div>
-                                        
-                                        <div class="modal-footer">
-
-                                            <?php
-                                            if(isset($_POST['update'])){
-                                                $update_Comment = new deleteUpdateComment();
-                                                $updateComment = $update_Comment -> update_Comments($comment['id']);
-                                                header('Location:admin.php?page=dashboard');
-                                                return $updateComment;
-                                            }
-                                            ?>
-
-                                            <form method="post">
-                                                <button type="submit" name="publish" class="btn btn-success">Publier</button>
-                                                <button type="button" name="noPublish" class="btn btn-secondary" data-dismiss="modal">Retirer</button>
-                                            </form>
-                                        </div>
-                                        
-                                    </div>
-                                </div>
-                            </div>
-
-
-                        </td>
-                    </tr>
-
-                    <?php
-                    }
-                    ?>
-
-                    </tbody>
-            </table>
-            <?php
-            }
-             ?>
         </div>
     </div>
 </session>
-
 
 <?php $content = ob_get_clean(); ?>
 

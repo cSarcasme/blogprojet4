@@ -8,7 +8,26 @@ try{
 			header('Location:admin.php?page=login');
 		}
 		elseif ($_GET['page'] == 'dashboard') {
-				dashboard();
+			dashboard();
+		}
+		elseif ($_GET['page'] == 'admins.dash') {
+			admins();
+		}
+		elseif ($_GET['page'] == 'publications.dash') {
+			if(isset($_GET['p']) && $_GET['p']>0){
+			publications();
+			}
+			else{
+				throw new Exception('Ce n\' est pas la bonne page');
+			}
+		}
+		elseif ($_GET['page'] == 'adminpost') {
+			if(isset($_GET['id']) && $_GET['id']>0){
+			adminPost();
+			}
+			else{
+				throw new Exception('Ce n\' est pas la bonne page');
+			}
 		}
 		elseif ($_GET['page'] == 'login') {
 				login();

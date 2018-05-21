@@ -3,9 +3,10 @@
 require_once('model/loginManager.php');
 require_once('model/dashboardManager.php');
 require_once('model/writteManager.php');
+require_once('model/postAdminManager.php');
 
 function login(){
-
+    /*login*/
     class login{
         public function submitLogin($email,$pseudo){
             $loginManager = new ced\Blog\projet4\loginManager(); 
@@ -22,11 +23,18 @@ function dashboard(){
     /*admins*/
     $countAdmins = $dashboardManager->tableCountAdmins();
 
-    /*comment*/
+    /*comments*/
     $countComments = $dashboardManager->tableCountComments();
     $countCommentsSeen = $dashboardManager->tableCountCommentsSeen();
     $countCommentsSeenSignal = $dashboardManager->tableCountCommentsSeenSignal();
-    $comments = $dashboardManager -> getComments();
+    $nbPages = $dashboardManager -> nbPagesBoardComments();
+    if(isset($_GET['p']) && $_GET['p']>0 && $_GET['p']<=$nbPages ){
+        $cPage=$_GET['p'];
+    }
+    else{
+        $cPage=1;
+    }
+    $comments = $dashboardManager -> getComments($cPage);
 
     class deleteUpdateComment{
         public function delete_Comments($postId){
@@ -41,9 +49,30 @@ function dashboard(){
 
     /*posts*/
     $countPosts = $dashboardManager->tableCountPosts();
+   
+    require('view/frontend/dashboard.php');
+}
+
+function publications(){
+    $dashboardManager = new ced\Blog\projet4\dashboardManager();
+
+    /*admins*/
+    $countAdmins = $dashboardManager->tableCountAdmins();
+
+    /*comment*/
+    $countComments = $dashboardManager->tableCountComments();
+    /*posts*/
+    $countPosts = $dashboardManager->tableCountPosts();
     $countPostsPublish = $dashboardManager->tableCountPostsPublish();
     $countPostsNoPublish = $dashboardManager->tableCountPostsNoPublish();
-    $posts = $dashboardManager -> getPosts();
+    $nbPages = $dashboardManager -> nbPagesBoardPosts();
+    if(isset($_GET['p']) && $_GET['p']>0 && $_GET['p']<=$nbPages ){
+        $cPage=$_GET['p'];
+    }
+    else{
+        $cPage=1;
+    }
+    $posts = $dashboardManager -> getPosts($cPage);
 
     class deleteUpdatePublishPost{
         public function delete_Post($postId){
@@ -60,8 +89,30 @@ function dashboard(){
         }
     }
     
+    require('view/frontend/publications.dash.php');
+}
+
+function admins(){
+    $dashboardManager = new ced\Blog\projet4\dashboardManager();
+
+    /*admins*/
+    $countAdmins = $dashboardManager->tableCountAdmins();
+
+    /*comment*/
+    $countComments = $dashboardManager->tableCountComments();
+    /*posts*/
+    $countPosts = $dashboardManager->tableCountPosts();
     
-    require('view/frontend/dashboard.php');
+    require('view/frontend/admins.dash.php');
+
+}
+function adminPost(){
+    $postAdmin=new ced\Blog\projet4\postAdminManager();
+    $post = $postAdmin->getPosts($_GET['id']);
+
+ 
+
+    require('view/frontend/adminpost.php');
 }
 
 function deconnexion(){
