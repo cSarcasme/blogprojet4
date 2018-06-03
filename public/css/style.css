@@ -1,198 +1,97 @@
-  /*navbar*/
+/*navbar*/
 #titre {
     border-bottom:2px solid #222222;
     height:50px;
 }
-#navbarNavDropdown{
-    position:relative;
-}
-#connexion{
-    position:absolute;
-    right:0;
-}
+/*css page post et adminpost */
+    /* content  chapter article*/
+    #postImageChapter{
+        position:relative;
+    }
+    .postContentImage{
+        height:380px;
+        width:100%;
+    }
+    #postTitle{
+        position:absolute;
+        top:38%;
+        left:5%;
+        right:5%;
+    }
+    #postTitle h1{
+       /* border:1px solid black;*/
+        background:white;
+        opacity:0.8;
+    }
+    #postTitle h5{
+        /*border:2px solid #FFC107;*/
+        
+       /* border:1px solid #FFC107;*/
+        background:black;
+        opacity:0.6; 
+    }
+    #encadr{
+        position: relative;
+        top:-5%;
+    }
+    #text-post{
+        color:grey; 
+    }
+    #chapterTextContent{
+        border-bottom:1px solid black;
+    }
+    #auteur{
+        background:#ededed;
+        color:black;      
+    }
+      /*comment chapter */
+    #chapterDateComment{
+        font-size:13px;
+    }
+    /*form comment chapter */
+    .colorFondChapter{
+        background:#F7CD71;
+    }
+    .form{
+        width:100%;
+        border-top:1px solid white;
+        border-right:1px solid white;
+        border-left:1px solid white;
+        border-bottom:1px solid black;
+    }
+    .form:focus{
+        border-bottom:3px solid #17A2B8;
+        background:#e5fbff;
+    }
 
-/*effet de hover sur les images card*/
-.hovereffect {
-    width: 100%;
-    height: 100%;
-    float: left;
-    overflow: hidden;
-    position: relative;
-    text-align: center;
-    cursor: default;
-  }
-  
-  .hovereffect .overlay {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    overflow: hidden;
-    left: 0;
-    background-color: rgba(255, 255, 255, 0.7);
-    top: -200px;
-    opacity: 0;
-    filter: alpha(opacity=0);
-    -webkit-transition: all 0.1s ease-out 0.5s;
-    transition: all 0.1s ease-out 0.5s;
-  }
-  
-  .hovereffect:hover .overlay {
-    opacity: 1;
-    filter: alpha(opacity=100);
-    top: 0px;
-    -webkit-transition-delay: 0s;
-    transition-delay: 0s;
-  }
-  
-  .hovereffect img {
-    display: block;
-    position: relative;
-  }
-  
-  .hovereffect h2 {
-    text-transform: uppercase;
-    color: #fff;
-    text-align: center;
-    position: relative;
-    font-size: 17px;
-    padding: 10px;
-    background: rgba(0, 0, 0, 0.6);
-    -webkit-transform: translateY(-200px);
-    -ms-transform: translateY(-200px);
-    transform: translateY(-200px);
-    -webkit-transition: all ease-in-out 0.1s;
-    transition: all ease-in-out 0.1s;
-    -webkit-transition-delay: 0.3s;
-    transition-delay: 0.3s;
-  }
-  
-  .hovereffect:hover h2 {
-    -webkit-transform: translateY(0px);
-    -ms-transform: translateY(0px);
-    transform: translateY(0px);
-    -webkit-transition-delay: 0.3s;
-    transition-delay: 0.3s;
-  }
-  
-  .hovereffect a.info {
-    display: inline-block;
-    text-decoration: none;
-    padding: 7px 14px;
-    text-transform: uppercase;
-    margin: 50px 0 0 0;
-    background-color: transparent;
-    -webkit-transform: translateY(-200px);
-    -ms-transform: translateY(-200px);
-    transform: translateY(-200px);
-    color: #000;
-    border: 1px solid #000;
-    -webkit-transition: all ease-in-out 0.3s;
-    transition: all ease-in-out 0.3s;
-  }
-  
-  .hovereffect a.info:hover {
-    box-shadow: 0 0 5px #fff;
-  }
-  
-  .hovereffect:hover a.info {
-    -webkit-transform: translateY(0px);
-    -ms-transform: translateY(0px);
-    transform: translateY(0px);
-    box-shadow: 0 0 5px #000;
-    color: #000;
-    border: 1px solid #000;
-    -webkit-transition-delay: 0.3s;
-    transition-delay: 0.3s;
-  }
+/*page home*/
+    /*slider*/
+    div.carousel-inner{
+        position:relative;  
+    }
+    #slide1{
+        position:absolute;
+        top:40%;
+    }
+    #slide1 h1{
+        font-size:50px; 
+    }
+    #slide1  p{ 
+        font-size:18px;
+    }
+    #slide2{
+        position:absolute;
+        top:40%;
+    }
+    #slide3{
+        position:absolute;
+        top:40%;
+    }
 
-  /*images chapter*/
-#postImageChapter{
-  position:relative;
-}
-.postContentImage{
-  height:380px;
-  width:100%;
-}
-
-#postTitleImages{
-  position:absolute;
-  top:40%;
-  width:100%;
-}
-  /* content blog chapter*/
-
-#chapterTextContent{
-  border-bottom:1px solid black;
-}
-
-  /*comment chapter */
-
-#chapterDateComment{
-  font-size:15px;
-}
-  /*form comment chapter */
-
-  .colorFondChapter{
-    background:#F7CD71;
-  }
+    /*cards home*/
+    #cardHome{
+      height:430px;
+    }
 
 
-/*div label i.fas{
-  border:1px solid #6C757D;
-  padding:6px;
-}*/
 
-.form{
-  width:100%;
-  border-top:1px solid white;
-  border-right:1px solid white;
-  border-left:1px solid white;
-  border-bottom:1px solid black;
-}
-
-.form:focus{
-  border-bottom:3px solid #17A2B8;
-  background:#e5fbff;
-}
-
-/*page home slider*/
-
-div.carousel-inner{
-  position:relative;
-  
-}
-.carousel-caption{
-  right:35%;
-  left:35%;
-}
-#slide1{
-  position:absolute;
-  top:40%;
-  
-
- 
-}
-
-#slide1 h1{
-  
-  border-top:5px solid  white;
-  border-bottom:5px solid white;
-  font-size:50px;
-  
-  
-}
-
-#slide1  p{
-  
-  font-size:18px;
-}
-
-#slide2{
-  position:absolute;
-  top:40%;
-}
-
-#slide3{
-  position:absolute;
-  top:40%;
-}

@@ -22,11 +22,11 @@
   </head>
   <body>
   <header>
-      <div class="container-fluid">
+      
       <?php
       include('body/topbar.php');
       ?>
-      </div>
+      
   </header>
   <main>
   <?= $content ?>
@@ -44,5 +44,6 @@
     <!-- Bootstrap core JavaScript -->
     <script src="public/js/bootstrap.js"></script>
     <script type="text/javascript" src="public/js/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
   </body>
 </html>

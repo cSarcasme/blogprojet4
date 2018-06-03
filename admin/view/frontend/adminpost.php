@@ -3,56 +3,47 @@
     <?php $title = "chapitre"?>
 
 <?php ob_start(); ?>   
-    <section  class="postContentImage" id="postImageChapter">
-        <div class="container-fluid">   
+    
+<section  class="postContentImage" id="postImageChapter">
+        <!--<div class="container-fluid">   -->
             <div class="postContentImage" >
                 <img src="../public/images/posts/<?= htmlspecialchars($post['image'])?>"  id="imageChapter" class="postContentImage" />
             </div>
-        <div class="row" id="postTitleImages">
-                <div class="col-lg-12 col-md-12 col-sm-12 post-title-block">
-                    <h1 class="text-center"><?= htmlspecialchars($post['title'])?></h1>
-                    <ul class="list-inline text-center" id="listTitlePost">
-                        <li><?= date("d/m/Y à H:i",strtotime(htmlspecialchars($post['date']))); ?></li>
-                        <li>Jean Forteroche</li>
-                    </ul>
+            <div  id="postTitle">
+                <div class="d-flex justify-content-center">
+                    <h1 class="text-center text-black p-1">BILLET POUR L' ALASKA</h1>
                 </div>
-                </div>
-        </div>
+            </div>
+     <!--   </div>-->
     </section>
 
-    <section class="post-content-section ">
-        <div class="container">
-            <div class="row"> 
-                <div class="col-lg-9 col-md-9 col-sm-12" id="textTitlePost">
-                    <div id="chapterTextContent">
-                        <p class="lead">Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.</p>
-                        <p class="text"><?= substr($post['content'],0,5000);?></p>
+    <section class="post-content-section pt-3">
+            <div class="container">
+                <div class="row" id="encadr"> 
+                    <div class="col-lg-9 col-md-9 col-sm-12" >
+                        <p class="text-right size1 mt-4 mr-4  text-muted">Le <?= date("d/m/Y à H:i",strtotime(htmlspecialchars($post['date']))); ?></p> 
+                        <div id="chapterTextContent">
+                        <div class="d-flex justify-content-center">
+                            <h3 class="text-center text-white px-2 pb-1 bg-danger"><?= htmlspecialchars($post['title'])?></h3>
+                        </div>
+                        <p class="lead font-weight-bold">Toutes les semaines venez retrouver un nouveau chapitre du roman nouvelle de Jean Forteroche</p>
+                        <div id="text-post"><?= html_entity_decode($post['content']);?></div>
+                        <p class="text-center font-weight-bold text-dark">Jean Forteroche</p>
+                    </div>
+                    </div>
+                    <div class="col-lg-3  col-md-3 col-sm-12">
+                        <div class="well mt-4 px-3" id="auteur">                
+                            <img src="../public/images/Jean_forteroche.jpg" class="rounded-circle mx-auto d-block" alt="Jean forteroche" width="150" height="100">    
+                            <p>Jean forteroche est un écrivain français né en 1965 en Normandie. Il connaît son premier grand succès en 2011 avec Nymphéas Noirs. Ses polars se vendent à des milliers d'exemplaires, le classant 2e auteur le plus vendu de France en 2017. 
+                                Aujourdh'ui il nous propose son nouveau roman nouvelle <strong>BILLET POUR L' ALASKA</strong> au format web .
+                            </p>
+                        </div>
                     </div>
                 </div>
-                <div class="col-lg-3  col-md-3 col-sm-12">
-                    <div class="well">
-                        <h2>Autheur</h2>    
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna</p>
-                        <a href="#" class="btn btn-default">Read more</a>
-                    </div>
-                 <!--   <div class="well">
-                        <h2>Chapitre</h2>
-                        <ul class="nav flex-column nav-tabs">
-                            <li class="nav-item ">
-                                <a class="nav-link" href="#">Chapitre 1</a>
-                            </li>
-                            <li class="nav-item bg-dark">
-                                <a class="nav-link" href="#">Chapitre 2</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active" href="#">Chapitre 1</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active" href="#">Dis</a>
-                            </li>
-                        </ul>
-                    </div>-->
-                </div> 
+            </div> 
+    </section> 
+
+
 
  <?php $content = ob_get_clean(); ?>
 

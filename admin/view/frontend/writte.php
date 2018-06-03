@@ -16,7 +16,8 @@
                 <?php
                     if(isset($_POST['postArticle'])){
                         $title=htmlspecialchars($_POST['titre']);
-                        $content=html_entity_decode(htmlspecialchars($_POST['contenu']));
+                        $content=($_POST['contenu']);	
+                        $content = preg_replace("/\s+/", " ", $content);
                         $posted=(isset($_POST['checkbox']));
                         $writer=$_SESSION['email'];
                         $errors=array();
@@ -33,7 +34,7 @@
                         }
 
                         if (isset($_FILES['file']) AND $_FILES['file']['error'] == 0){
-                            if ($_FILES['file']['size'] <= 1000000){
+                            if ($_FILES['file']['size'] <= 4000000){
 
                                 $infosfichier = pathinfo($_FILES['file']['name']);
                                 $extension_upload = $infosfichier['extension'];
@@ -54,6 +55,7 @@
                         else{
                             $image = 'post.png' ;
                         }
+                        
 
                         if(!empty($errors)){
                             ?>

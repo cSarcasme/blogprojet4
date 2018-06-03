@@ -7,6 +7,7 @@ require_once("model/manager.php");
     class dashboardManager extends Manager{
 
         private $perPage = 10;
+        private $cPage = 1;
 
 /*part Admins */
         /*count nbr Admins*/
@@ -25,14 +26,14 @@ require_once("model/manager.php");
             $nbr = $req -> fetch();
             return $nbr;
         }
-        /*count nbr comments no valid by admins in tableau de bord*/
+        /*count nbr comments no valid by admins in dashboard*/
         public function tableCountCommentsSeen(){
             $db = $this->dbConnect();
             $req =$db->query('SELECT COUNT(id)as idComments FROM comments WHERE comments.seen="0"');
             $nbr = $req -> fetch();
             return $nbr;
         }
-        /*count nbr comments reported by user in tableau de bord*/
+        /*count nbr comments reported by user in tableau de bdashboard*/
         public function tableCountCommentsSeenSignal(){
             $db = $this->dbConnect();
             $req =$db->query('SELECT COUNT(id)as idComments FROM comments WHERE comments.seen="2"');
@@ -48,9 +49,17 @@ require_once("model/manager.php");
             return $req;
         }
         /*delete comments*/
-        public function deleteComments($postId){
+        public function deleteComment($postId){
             $db = $this-> dbConnect();
             $req =$db->prepare('DELETE  FROM comments WHERE comments.id=?');
+            $req->execute(array($postId));
+            
+            return $req;
+        }
+        /*delete comments with post*/
+        public function deleteCommentsWithPost($postId){
+            $db = $this-> dbConnect();
+            $req =$db->prepare('DELETE  FROM comments WHERE comments.post_id =?');
             $req->execute(array($postId));
             
             return $req;
@@ -111,7 +120,7 @@ require_once("model/manager.php");
             return $req;
         }
         /*update post article publish*/
-        public function updatePostsPublish($postId){
+        public function updatePostPublish($postId){
             $db = $this-> dbConnect();
             $req =$db->prepare('UPDATE   posts SET posts.posted = "1" WHERE posts.id=?');
             $req->execute(array($postId));
@@ -119,7 +128,7 @@ require_once("model/manager.php");
             return $req;
         }
         /*update post article no publish*/
-        public function updatePostsNoPublish($postId){
+        public function updatePostNoPublish($postId){
             $db = $this-> dbConnect();
             $req =$db->prepare('UPDATE   posts SET posts.posted = "0" WHERE posts.id=?');
             $req->execute(array($postId));

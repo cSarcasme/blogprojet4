@@ -1,6 +1,4 @@
-/*.cardDashboard{
-    font-size:25px;
-}*/
+
 .size{
     font-size:12px;
 }
@@ -20,7 +18,10 @@
 .size4{
     font-size:20px;
 }
-
+/* css topbar2*/
+    #titre2{
+        border-bottom:5px solid #161C27;
+    }
 /* css writte article*/
     /*input file*/
     .btn-file {

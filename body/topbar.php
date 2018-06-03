@@ -1,5 +1,5 @@
 
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-lg navbar-dark"  style="background-color:#161C27;">
     <a class="navbar-brand text-primary" href="index.php?page=home">
       <img src="public/images/jf-logo.jpg" width="30" height="30" class="d-inline-block align-top" alt="logo jean forteroche "> Jean Forteroche
     </a>

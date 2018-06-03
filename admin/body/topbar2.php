@@ -1,6 +1,6 @@
 
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#161C27;">
     <a class="navbar-brand" href="admin.php?page=dashboard">
         <img src="../public/images/jf-logo.jpg" width="30" height="30" class="d-inline-block align-top" alt=""> Jean Forteroche
     </a>
@@ -21,12 +21,12 @@
         </div>
     </div>
 </nav>
-<div class="bg-dark " id="titre">
-    <div class="container ">
+<div style="background-color:#161C27;" id="titre2">
+    <div class="container">
         <div class="d-flex justify-content-end mr-5">
         <a href="admin.php?page=dashboard" data-toggle="tooltip" title="tableau de bord">
             <?php  
-            if(isset($_GET['page']) && $_GET['page']=='dashboard'){
+            if(isset($_GET['page']) && ($_GET['page']=='dashboard' OR $_GET['page']=='publications.dash')) {
             ?>
                 <i class="fas fa-th-large fa-2x text-danger p-1 pl-2 pr-2 mr-2 bg-white"></i>
             <?php 

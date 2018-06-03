@@ -7,12 +7,26 @@ try{
 		if($_GET['page'] != 'login' && !isset($_SESSION['email'])){
 			header('Location:admin.php?page=login');
 		}
+	/* page center of dashboard with comment*/
 		elseif ($_GET['page'] == 'dashboard') {
 			dashboard();
 		}
+		elseif ($_GET['page'] == 'updateValidComment') {
+			if (isset($_GET['id']) && $_GET['id'] > 0) {
+				updateValidComment($_GET['id']);
+			}
+		}
+		elseif ($_GET['page'] == 'deleteComment') {
+			if (isset($_GET['id']) && $_GET['id'] > 0) {
+				deleteComment($_GET['id']);
+			}
+		}
+	/*page admins of dashboard*/
 		elseif ($_GET['page'] == 'admins.dash') {
 			admins();
 		}
+
+	/*page publications of dashboard*/
 		elseif ($_GET['page'] == 'publications.dash') {
 			if(isset($_GET['p']) && $_GET['p']>0){
 			publications();
@@ -29,18 +43,39 @@ try{
 				throw new Exception('Ce n\' est pas la bonne page');
 			}
 		}
+		elseif ($_GET['page'] == 'updapteNoPublishPost') {
+			if (isset($_GET['id']) && $_GET['id'] > 0) {
+				updapteNoPublishPost($_GET['id']);
+			}
+		}
+		elseif ($_GET['page'] == 'deletepost') {
+			if (isset($_GET['id']) && $_GET['id'] > 0) {
+				delete_Post($_GET['id']);
+			}
+		}
+		elseif ($_GET['page'] == 'updaptePublishPost') {
+			if (isset($_GET['id']) && $_GET['id'] > 0) {
+				updaptePublishPost($_GET['id']);
+			}
+		}
+	/*page login connexion*/
 		elseif ($_GET['page'] == 'login') {
 				login();
 		}
 		elseif ($_GET['page'] == 'deconnexion') {
 			deconnexion();
 		}
+
+	/*page write a article */
 		elseif ($_GET['page'] == 'writte') {
 			writte();
 		}
+
+	/* page configuration*/
 		elseif ($_GET['page'] == 'config') {
 			config();
 		}
+
 		elseif(in_array($_GET['page'],$pages)){
 				$page=$_GET['page'];
 		}
