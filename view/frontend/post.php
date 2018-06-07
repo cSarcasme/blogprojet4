@@ -56,12 +56,13 @@
                         </ul>
                     </div>-->
                 </div>        
-                    <div class="col-lg-9 col-md-9 col-sm-12 mt-3">
+                    <div class="col-lg-9 col-md-9 col-sm-12 mt-3 comments">
                         <h2>Commentaires</h2>
 
                         <?php               
-                        foreach($comments as $comment){                        
-                        ?>
+                        foreach($comments as $comment){
+                            if($comment['seen']== 1 or $comment['seen']== 2 ){                    
+                            ?>
                             <div class="media border p-3 mb-3 mt-3">
                                 <img src="public/images/posts/img_avatar3.png" alt="image comment user" class="mr-3 mt-3 rounded-circle" style="width:60px;">
                                 <div class="media-body">
@@ -70,7 +71,8 @@
                                     <a href="index.php?page=click&amp;id=<?=$post['id']?>&amp;idc=<?=$comment['id']?>" class="text-danger" style="float:right;"><i class="fas fa-flag mr-1"></i>Signaler un abus</a>
                                 </div>
                             </div>
-                        <?php
+                            <?php
+                            }
                         }
                         ?>
                         <?php
@@ -83,15 +85,12 @@
                             if(empty($name) || empty($email) || empty($comment)){
                                 $errors['empty'] = "Tous les champs ne sont pas remplis.";
                             }
-                            else{
-                                if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-                                    $errors['email'] = "L' adresse email n' est pas valide.";
+                            elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+                                $errors['email'] = "L' adresse email n' est pas valide.";
                                 }
-                            }
-
+                        
                             if(!empty($errors)){
                                 ?>
-
                                 <div class="alert alert-danger"> 
                                     <?php
                                         foreach($errors as $error){
@@ -101,12 +100,13 @@
                                 </div>
                                 <?php
                             }
-                            else{
-                                
-                                ?>
-
-                                <?php
+                            else{          
                                 post_comment($_GET['id'],$name, $email, $comment);
+                                ?>
+                                <div class="alert alert-success">
+                                    Commentaire envoyé en attente de validation
+                                </div>
+                                <?php
                             }
                         }
                         ?>
@@ -126,7 +126,7 @@
                                     <textarea name="comment" id="comment" placeholder="Commentaire" class="form"></textarea>
                                 </div>
                                 <div class="col-sm-12 mb-3">
-                                    <button type="submit" name="submit" class="btn btn-info">Commenter</button>
+                                    <a href=".comments"><button type="submit" name="submit" id="addComment" class="btn btn-info">Commenter</button></a>
                                 </div>
                             </div>
                         </form>

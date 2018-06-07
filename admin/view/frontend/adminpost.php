@@ -39,6 +39,12 @@
                             </p>
                         </div>
                     </div>
+               
+                    <form method="post" action="admin.php?page=modifpost&amp;id=<?= $post['id']?>">
+                        <div class="col-sm-12 mt-2 mb-3">
+                            <button class="btn btn-info">Modifier l' article</button>
+                        </div>
+                    </form>
                 </div>
             </div> 
     </section> 

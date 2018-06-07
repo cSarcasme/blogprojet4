@@ -1,4 +1,5 @@
 $( document ).ready(function() {
+  /*animate page home*/
     $('.ml3').each(function(){
         $(this).html($(this).text().replace(/([^\x00-\x80]|\w)/g, "<span class='letter'>$&</span>"));
       });
@@ -20,6 +21,4 @@ $( document ).ready(function() {
           delay: 1500
         });
 
-      
-        
 });

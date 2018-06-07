@@ -4,6 +4,8 @@ require_once('model/loginManager.php');
 require_once('model/dashboardManager.php');
 require_once('model/writteManager.php');
 require_once('model/postAdminManager.php');
+require_once('model/modifPostManager.php');
+require_once('model/configManager.php');
 
 
 
@@ -115,12 +117,14 @@ require_once('model/postAdminManager.php');
 
         /*admins*/
         $countAdmins = $dashboardManager->tableCountAdmins();
+        $datas = $dashboardManager->selectAdmins();
 
         /*comment*/
         $countComments = $dashboardManager->tableCountComments();
         /*posts*/
         $countPosts = $dashboardManager->tableCountPosts();
         
+
         require('view/frontend/admins.dash.php');
 
     }
@@ -138,6 +142,24 @@ require_once('model/postAdminManager.php');
 
         
     }
+/*page modif article view*/
+    function modifPost(){
+        $postAdmin=new ced\Blog\projet4\postAdminManager();
+        $post = $postAdmin->getPosts($_GET['id']);
+
+        if ($post == false) {
+            throw new Exception('Ce n\'est pas la bonne page');
+        }
+        else {
+            require('view/frontend/modifpost.php');
+        }       
+    }
+    function modif_Post($postId, $title, $content, $posted){
+        $modifUpdatePost=new ced\Blog\projet4\modifPostManager();
+        $affectedLines = $modifUpdatePost->modifPost($postId, $title, $content, $posted);
+        
+        header('Location:admin.php?page=publications.dash&p=1');
+    }
 /*page deconnexion*/
     function deconnexion(){
         require('view/frontend/deconnexion.php');
@@ -154,5 +176,19 @@ require_once('model/postAdminManager.php');
     }
 /* page configuration */
     function config(){
+        class config{
+            public function verifConfig($pseudo,$email){
+                $configManager=new ced\Blog\projet4\configManager();
+                $data = $configManager->selectAdmins($pseudo,$email);
+                
+                return $data;
+            }
+        }
+
+        function add_Admins($name,$pseudo,$email,$password){
+            $configManager=new ced\Blog\projet4\configManager();
+            $affectedLines = $configManager->addAdmins($name,$pseudo,$email,$password);
+            header('Location:admin.php?page=admins.dash');
+        }
         require('view/frontend/config.php');
     }

@@ -49,7 +49,7 @@
             <td><?= date("d/m/Y H:i ",strtotime($post['date']))?></td>
             <td>
                 <!-- bouton valid posts dashboard-->
-                <a href="#" data-toggle="modal" data-target="#mymodalok<?php echo $post['id'] ?>"><i class="fas fa-check fa-2x text-success"></i></a>
+                <a href="#" data-toggle="modal" data-target="#mymodalok<?php echo $post['id'] ?>"><i class="fas fa-check fa-lg text-success" title="Publier"></i></a>
                 
                 <!-- The Modal valid posts -->
                 <div class="modal fade" id="mymodalok<?php echo $post['id'] ?>">
@@ -78,7 +78,7 @@
                 </div>
                                             
                 <!-- bouton delete posts dashboard-->
-                <a href="#" data-toggle="modal" data-target="#mymodaldelete<?php echo $post['id'] ?>"><i class="fas fa-trash fa-2x text-danger"></i></i></a>
+                <a href="#" data-toggle="modal" data-target="#mymodaldelete<?php echo $post['id'] ?>"><i class="fas fa-trash fa-lg  text-danger" title="Supprimer "></i></i></a>
                 
                 <!-- The Modal delete posts -->
                 <div class="modal fade" id="mymodaldelete<?php echo $post['id'] ?>">
@@ -106,7 +106,10 @@
                     </div>
                 </div>
                 <!-- bouton see post dashboard-->
-                <a href="admin.php?page=adminpost&amp;id=<?php echo $post['id'] ?>"><i  class="fas fa-eye fa-2x text-primary" ></i></a>
+                <a href="admin.php?page=modifpost&amp;id=<?php echo $post['id'] ?>"><i class="fas fa-pencil-alt fa-lg text-warning" title="Modifier"></i></a>
+
+                <!-- button modification post -->
+                <a href="admin.php?page=adminpost&amp;id=<?php echo $post['id'] ?>"><i  class="fas fa-eye fa-lg text-primary" title="Voir l' article" ></i></a>
             </td>                          
             <?php
             }

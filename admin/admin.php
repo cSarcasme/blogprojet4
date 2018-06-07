@@ -58,6 +58,13 @@ try{
 				updaptePublishPost($_GET['id']);
 			}
 		}
+	/* modification article */
+		elseif ($_GET['page'] == 'modifpost') {
+			if(isset($_GET['id']) && $_GET['id']>0){
+				modifPost();
+			}
+		}
+
 	/*page login connexion*/
 		elseif ($_GET['page'] == 'login') {
 				login();

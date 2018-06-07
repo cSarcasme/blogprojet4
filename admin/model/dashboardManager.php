@@ -142,6 +142,13 @@ require_once("model/manager.php");
             $nbPages = ceil($nbrArt/$this->perPage);
             return$nbPages;
         }
-        
 
+/*part admins */
+    /*get admins*/
+    public function selectAdmins(){
+        $db=$this->dbConnect();
+        $req = $db->query("SELECT admins.name, admins.pseudo, admins.email, admins.date FROM admins");
+
+        return $req;
     }
+}

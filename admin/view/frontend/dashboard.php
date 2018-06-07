@@ -12,9 +12,9 @@
                 
         <div class="container mt-3"> 
             <div class="d-flex mb-3 ">
-                <div class="mr-auto">Retrouvez tous vox nouveaux commentaires</div>
-                <div class=" size3 badge badge-danger mr-3" id="commentNewSignal"><?= $countCommentsSeenSignal['idComments'] ?> </div>
-                <div class="size3 badge badge-success" id="commentNew"><?= $countCommentsSeen['idComments'] ?></div>
+                <div class="mr-auto">Retrouvez tous vos nouveaux commentaires</div>
+                <div class=" size3 badge badge-danger mr-3" id="commentNewSignal"><?= $countCommentsSeenSignal['idComments'] ?>/NP </div>
+                <div class="size3 badge badge-success" id="commentNew"><?= $countCommentsSeen['idComments'] ?>/P</div>
             </div>
         </div>
                  
@@ -48,7 +48,7 @@
                 <td><?= substr($comment['comment'],0,50)?></td>
                 <td>
                     <!-- bouton update comment dashboard-->
-                    <a href="#" data-toggle="modal" data-target="#mymodalok<?php echo $comment['id'] ?>"><i class="fas fa-check fa-2x text-success"></i></a>
+                    <a href="#" data-toggle="modal" data-target="#mymodalok<?php echo $comment['id'] ?>"><i class="fas fa-check fa-lg text-success" title="Valider"></i></a>
                     
                     <!-- The Modal update comment -->
                     <div class="modal fade" id="mymodalok<?php echo $comment['id'] ?>">
@@ -78,7 +78,7 @@
                     </div>
 
                     <!-- bouton delete comment dashboard-->
-                    <a href="#" data-toggle="modal" data-target="#mymodaldelete<?php echo $comment['id'] ?>"><i class="fas fa-trash fa-2x text-danger"></i></a>
+                    <a href="#" data-toggle="modal" data-target="#mymodaldelete<?php echo $comment['id'] ?>"><i class="fas fa-trash fa-lg text-danger" title="Supprimer"></i></a>
 
                     <!-- The Modal delete comment -->
                     <div class="modal fade" id="mymodaldelete<?php echo $comment['id'] ?>">
@@ -108,7 +108,7 @@
                     </div>
 
                     <!-- bouton see comment dashboard-->
-                    <a href="#" data-toggle="modal" data-target="#mymodalsee<?php echo $comment['id'] ?>" ><i  class="fas fa-eye fa-2x text-primary" ></i></a>
+                    <a href="#" data-toggle="modal" data-target="#mymodalsee<?php echo $comment['id'] ?>" ><i  class="fas fa-eye fa-lg text-primary" title="Voir commentaire" ></i></a>
 
                     <!-- The Modal see comment -->
                     <div class="modal fade" id="mymodalsee<?php echo $comment['id'] ?>">
@@ -145,60 +145,60 @@
         <div class="container">
             <div class="row justify-content-center">
                 <nav aria-label="Page navigation example">               
-                <ul class="pagination ">
-                    <!--decrease harrow left-->
-                    <?php if (isset($_GET["p"]) && $_GET['p']>1 && $_GET['p']<=$nbPages) {
+                    <ul class="pagination ">
+                        <!--decrease harrow left-->
+                        <?php if (isset($_GET["p"]) && $_GET['p']>1 && $_GET['p']<=$nbPages) {
+                            ?>
+                        <li class="page-item">
+                            <a class="page-link" href="admin.php?page=dashboard&amp;p=<?=$_GET["p"]-1?>" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                        </li>
+                        <?php
+                        }
+                        else{
                         ?>
-                    <li class="page-item">
-                        <a class="page-link" href="admin.php?page=dashboard&amp;p=<?=$_GET["p"]-1?>" aria-label="Previous">
-                            <span aria-hidden="true">&laquo;</span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                    </li>
-                    <?php
-                    }
-                    else{
-                    ?>
-                    <li class="page-item">
-                        <a class="page-link" href="admin.php?page=dashboard&amp;p=<?=$_GET["p"]=1?>" aria-label="Previous">
-                            <span aria-hidden="true">&laquo;</span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                    </li>
-                    <?php
-                    }
-                    ?>
-                    <!--number pagination-->
-                    <?php
-                    for($i=1; $i<=$nbPages; $i++){
-                    ?>
-                        <li class="page-item"><a class="page-link" href="admin.php?page=dashboard&amp;p=<?=$i?>"><?=$i?></a></li>
-                    <?php
-                    }
-                    ?>
-                    <!--increase harrow right-->
-                    <?php
-                    if (isset($_GET["p"]) && $_GET['p']>0 && $_GET['p']<$nbPages) {                           
-                    ?>
-                    <li class="page-item">
-                    <a class="page-link" href="admin.php?page=dashboard&amp;p=<?=$_GET["p"]+1?>" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                    </li>
-                    <?php
-                    }
-                    else{
+                        <li class="page-item">
+                            <a class="page-link" href="admin.php?page=dashboard&amp;p=<?=$_GET["p"]=1?>" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                        </li>
+                        <?php
+                        }
                         ?>
-                            <li class="page-item">
-                    <a class="page-link" href="admin.php?page=dashboard&amp;p=<?=$_GET["p"]=$nbPages?>" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                    <?php
-                    }
-                    ?>
-                </ul>            
+                        <!--number pagination-->
+                        <?php
+                        for($i=1; $i<=$nbPages; $i++){
+                        ?>
+                            <li class="page-item"><a class="page-link" href="admin.php?page=dashboard&amp;p=<?=$i?>"><?=$i?></a></li>
+                        <?php
+                        }
+                        ?>
+                        <!--increase harrow right-->
+                        <?php
+                        if (isset($_GET["p"]) && $_GET['p']>0 && $_GET['p']<$nbPages) {                           
+                        ?>
+                        <li class="page-item">
+                        <a class="page-link" href="admin.php?page=dashboard&amp;p=<?=$_GET["p"]+1?>" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                        </li>
+                        <?php
+                        }
+                        else{
+                            ?>
+                                <li class="page-item">
+                        <a class="page-link" href="admin.php?page=dashboard&amp;p=<?=$_GET["p"]=$nbPages?>" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                        <?php
+                        }
+                        ?>
+                    </ul>            
                 </nav>
             </div>
         </div>

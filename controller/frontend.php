@@ -26,7 +26,12 @@ function postChapter(){
     $commentManager=new ced\Blog\projet4\commentManager();
     $comments = $commentManager->getComments($_GET['id']);
 
-       require('view/frontend/post.php');
+    if ($post == false) {
+        throw new Exception('Ce n\'est pas la bonne page');
+    }
+    else {
+        require('view/frontend/post.php');
+    }      
 }
 
 function post_comment($postId,$name, $email, $comment){
