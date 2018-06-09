@@ -1,5 +1,11 @@
-
-  <nav class="navbar navbar-expand-lg navbar-dark"  style="background-color:#161C27;">
+<?php
+require_once('model/postManager.php');
+$blogManager=new ced\Blog\projet4\blogManager();
+    $posts = $blogManager->getPosts();
+?>
+<!--top bar of part no admin -->
+  
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top"  style="background-color:#161C27;">
     <a class="navbar-brand text-primary" href="index.php?page=home">
       <img src="public/images/jf-logo.jpg" width="30" height="30" class="d-inline-block align-top" alt="logo jean forteroche "> Jean Forteroche
     </a>
@@ -16,9 +22,6 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">A PROPOS</a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link" href="index.php?page=blog">BLOG</a>
         </li>
         <li class="nav-item dropdown">
@@ -26,9 +29,14 @@
             CHAPITRES
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="#">Chapitre 1</a>
-            <a class="dropdown-item" href="#">Chapitre 2</a>
-            <a class="dropdown-item" href="#">Chapitre 3</a>
+            <?php
+            foreach ($posts as $post){
+
+            ?>
+            <a class="dropdown-item" href="index.php?page=post&amp;id=<?= $post['id']?>"><?= $post['title']?></a>
+            <?php
+            }
+            ?>
           </div>
         </li>
       </ul>

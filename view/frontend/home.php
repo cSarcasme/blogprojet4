@@ -1,9 +1,9 @@
-
+<!--page home-->
 <?php $title = "Accueil"?>
-
 <?php ob_start(); ?>
+
+<!-- slider -->
 <section id="slider">
- <!--   <div class="container-fluid">-->
         <style>
         /* Make the image fully responsive */
         .carousel-inner img {
@@ -11,7 +11,6 @@
             
         }
         </style>
-
 
         <div id="demo" class="carousel slide" data-ride="carousel" data-interval="15000">
             <ul class="carousel-indicators">
@@ -40,20 +39,19 @@
                 <span class="carousel-control-next-icon"></span>
             </a>
         </div>
-   <!-- </div>-->
 </section>
-<section>
-<div class="container-fluid">
+
+<!-- last chapter -->
+<section class="mt-5">
     <div class="container">
-        <div class="row mt-5">
-
-        <?php
-
-            foreach($posts as $post){
-                $content=html_entity_decode($post['content']);
-        ?>
-
-            <div class="col-md-4 col-12 mt-2">
+    <h3 style="text-align:center;"> Mes 3 derniers chapitres </h3>
+        <div class="row mb-5 mt-3">
+            <?php
+                /*display 3 chapter post on home */
+                foreach($posts as $post){
+                    $content=html_entity_decode($post['content']);
+            ?>
+            <div class="col-md-4 col-12">
                 <div class="card" id="cardHome">
                     <img class="card-img-top" src="public/images/posts/<?= htmlspecialchars($post['image'])?>" alt="<?= htmlspecialchars($post['title'])?>"width="100%" height="216px">                    
                     <div class="card-body">
@@ -69,8 +67,25 @@
             ?>
         </div>
     </div>
-    </div>
 <section>
+<!-- part best comment -->
+<section>
+    <div class="container mb-5">
+        <div class="row" style="background:#F7CD71;">
+            <div class="col-12">
+                <h4 class="text-white">Meilleur commentaire</h4>
+                <div class="media border p-3 mb-3 mt-3 bg-white">
+                    <img src="public/images/img_avatar3.png" alt="image comment user" class="mr-3 mt-3 rounded-circle" style="width:60px;">
+                    <div class="media-body">
+                        <h4>Par <strong>Charles Dupuy</strong><em class="text-muted"> Le 09/06/2018</em></h4>
+                        <p>Sympa ce roman nouvelle au format web. De plus l' intrigue arrive vite j' ai hate à l' édition de la semaine prochaine.</p>      
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 
 <?php $content = ob_get_clean(); ?>
 

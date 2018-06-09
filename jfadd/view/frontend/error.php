@@ -5,7 +5,7 @@
     <h1>Aie aie aie .....</h1>
     <?= $e->getMessage() ?>
     <figure>
-        <img src="public/images/error.jpg" alt="error image" />
+        <img src="../public/images/error.jpg" alt="error image" />
     </figure>
 </div>
 <?php $content = ob_get_clean(); ?>

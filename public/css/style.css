@@ -3,10 +3,13 @@
     border-bottom:2px solid #222222;
     height:50px;
 }
-/*css page post et adminpost */
+/*css page post  */
     /* content  chapter article*/
     #postImageChapter{
         position:relative;
+        top:50px;
+        height:420px;
+        width:100%;
     }
     .postContentImage{
         height:380px;
@@ -19,14 +22,10 @@
         right:5%;
     }
     #postTitle h1{
-       /* border:1px solid black;*/
         background:white;
         opacity:0.8;
     }
     #postTitle h5{
-        /*border:2px solid #FFC107;*/
-        
-       /* border:1px solid #FFC107;*/
         background:black;
         opacity:0.6; 
     }
@@ -49,9 +48,6 @@
         font-size:13px;
     }
     /*form comment chapter */
-    .colorFondChapter{
-        background:#F7CD71;
-    }
     .form{
         width:100%;
         border-top:1px solid white;

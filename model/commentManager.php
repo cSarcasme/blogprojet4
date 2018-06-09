@@ -1,11 +1,11 @@
 <?php
-
+/*manager of the page comment*/
 namespace ced\Blog\projet4;
 
 require_once("model/manager.php");
 
 class commentManager extends Manager{
-
+    /*inset comment*/
     public function postComment($postId, $name, $email, $comment){
         $db = $this->dbConnect();
         $comments = $db->prepare('INSERT INTO comments(comments.post_id, comments.name, comments.email, comments.comment, comments.date)
@@ -14,7 +14,7 @@ class commentManager extends Manager{
 
         return $affectedLines;
     }
-
+    /*get comments info*/
     public function getComments($postId){
         $db = $this->dbConnect();
         $comments=$db->prepare("SELECT comments.id, comments.name, comments.email, comments.comment ,comments.seen FROM comments 
@@ -24,7 +24,7 @@ class commentManager extends Manager{
 
         return $comments;
     }
-
+    /*update comments signal abuse*/
     public function updateComment($post_id){
         $db = $this-> dbConnect();
         $req =$db->prepare('UPDATE   comments SET comments.seen = "2" WHERE comments.id=?');
