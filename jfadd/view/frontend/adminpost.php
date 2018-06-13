@@ -6,7 +6,7 @@
 <section  class="postContentImage" id="postImageChapter">
         <!--<div class="container-fluid">   -->
             <div class="postContentImage" >
-                <img src="../public/images/posts/<?= htmlspecialchars($post['image'])?>"  id="imageChapter" class="postContentImage" />
+                <img src="../public/images/posts/<?= htmlspecialchars($post['image'])?>" alt="image du titre"  id="imageChapter" class="postContentImage" />
             </div>
             <div  id="postTitle">
                 <div class="d-flex justify-content-center">
@@ -31,15 +31,15 @@
                     </div>
                     </div>
                     <div class="col-lg-3  col-md-3 col-md-12">
-                        <div class="well mt-4 px-3" id="auteur">                
+                        <aside class="well mt-4 px-3" id="auteur">                
                             <img src="../public/images/Jean_forteroche.jpg" class="rounded-circle mx-auto d-block" alt="Jean forteroche" width="150" height="100">    
                             <p>Jean forteroche est un écrivain français né en 1965 en Normandie. Il connaît son premier grand succès en 2011 avec Nymphéas Noirs. Ses polars se vendent à des milliers d'exemplaires, le classant 2e auteur le plus vendu de France en 2017. 
                                 Aujourdh'ui il nous propose son nouveau roman nouvelle <strong>BILLET POUR L' ALASKA</strong> au format web .
                             </p>
-                        </div>
+                        </aside>
                     </div>
                     <!--form modification post-->
-                    <form method="post" action="admin.php?page=modifpost&amp;id=<?= $post['id']?>">
+                    <form method="post" action="index.php?page=modifpost&amp;id=<?= $post['id']?>">
                         <div class="col-md-12 mt-2 mb-3">
                             <button class="btn btn-info">Modifier l' article</button>
                         </div>

@@ -20,7 +20,7 @@
             <div class="carousel-inner">
                 <div class="carousel-item active">
                 <img src="public/images/alaska.jpg" alt="Los Angeles" width="1100" height="700">
-                    <div class="carousel-caption"id="slide1">
+                    <div class="carousel-caption" id="slide1">
                         <h1 class="ml3">BILLET POUR L' ALASKA</h1>
                         <p class="ml3 text-warning font-weight-bold"><strong>Le nouveau roman de Jean Forteroche</strong></p>
                     </div>   
@@ -52,13 +52,13 @@
                     $content=html_entity_decode($post['content']);
             ?>
             <div class="col-md-4 col-12">
-                <div class="card" id="cardHome">
-                    <img class="card-img-top" src="public/images/posts/<?= htmlspecialchars($post['image'])?>" alt="<?= htmlspecialchars($post['title'])?>"width="100%" height="216px">                    
+                <div class="card cardHome">
+                    <img  height="216" class="card-img-top" src="public/images/posts/<?= htmlspecialchars($post['image'])?>" alt="<?= htmlspecialchars($post['title'])?>" style="width:100%;">                    
                     <div class="card-body">
                         <h4 class="card-title"><?= htmlspecialchars($post['title'])?></h4>
                         <h6 class="text-muted">Le <?= date("d/m/Y à H:i",strtotime(htmlspecialchars($post['date']))); ?> par <?= htmlspecialchars($post['name'])?></h6>
                         <p class="card-text"><?=  substr($content ,0,50);?>...</p>
-                        <a href="index.php?page=post&amp;id=<?=htmlspecialchars($post['id'])?>"><button type="button" class="btn btn-danger btn-sm">Lire la suite</button></a>
+                        <a class="btn btn-danger btn-sm" href="index.php?page=post&amp;id=<?=htmlspecialchars($post['id'])?>">Lire la suite</a>
                     </div>
                 </div>
             </div>
@@ -67,7 +67,7 @@
             ?>
         </div>
     </div>
-<section>
+</section>
 <!-- part best comment -->
 <section>
     <div class="container mb-5">

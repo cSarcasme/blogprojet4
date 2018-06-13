@@ -11,7 +11,9 @@
     <link href="../public/css/bootstrap.css" rel="stylesheet">
    <!-- <link href="../public/css/style.css" rel="stylesheet">-->
     <link href="public/css/style.css" rel="stylesheet">
-	  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	<!--favicon-->
+	<link rel="icon" type="image/jpg" href="../public/images/jf-logo.jpg" />
+	 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 	
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -25,7 +27,7 @@
   <header>
       
       <?php
-      if(isset($_GET['page']) && $_GET['page']=='login'){
+      if(!isset($_SESSION['email'])){
         include('body/topbar.php');
       }
       else{
@@ -38,7 +40,7 @@
   <?= $content ?>
   </main>
 
-  <footer>
+  <footer class="page-footer font-small bg-dark pt-0">
       
       <?php
       include('body/footer.php');
@@ -48,11 +50,11 @@
     
 	  
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script type="text/javascript" src="../public/js/jquery-3.2.1.min.js"></script>
+    <script src="../public/js/jquery-3.2.1.min.js"></script>
     <!-- Bootstrap core JavaScript -->
     <script src="../public/js/bootstrap.js"></script>
-    <script type="text/javascript" src="public/js/script.js"></script>
-    <script type="text/javascript" src="public/js/tinymce/tinymce.js">></script>
+    <script src="public/js/script.js"></script>
+    <script src="public/js/tinymce/tinymce.js"></script>
     <script>
   tinymce.init({
    

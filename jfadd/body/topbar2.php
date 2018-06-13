@@ -1,7 +1,7 @@
 
 <!--topbar for dashboard-->
 <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#161C27;">
-    <a class="navbar-brand" href="admin.php?page=dashboard">
+    <a class="navbar-brand" href="index.php?page=dashboard">
         <img src="../public/images/jf-logo.jpg" width="30" height="30" class="d-inline-block align-top" alt=""> Jean Forteroche
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -13,7 +13,7 @@
                 <div class="row justify-content-end">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link text-primary"  data-toggle="tooltip" title="Deconnexion"    href="admin.php?page=deconnexion"><i class="fas fa-sign-out-alt mr-1 "></i>Deconnexion</a>                              
+                            <a class="nav-link text-primary"  data-toggle="tooltip" title="Deconnexion"    href="index.php?page=deconnexion"><i class="fas fa-sign-out-alt mr-1 "></i>Deconnexion</a>                              
                         </li>
                     </ul>
                 </div>
@@ -24,7 +24,7 @@
 <div style="background-color:#161C27;" id="titre2">
     <div class="container">
         <div class="d-flex justify-content-end mr-5">
-        <a href="admin.php?page=dashboard" data-toggle="tooltip" title="tableau de bord">
+        <a href="index.php?page=dashboard" data-toggle="tooltip" title="tableau de bord">
             <?php  
             if(isset($_GET['page']) && ($_GET['page']=='dashboard' OR $_GET['page']=='publications.dash' OR $_GET['page']=='admins.dash')) {
             ?>
@@ -39,7 +39,7 @@
             ?>                                     
         </a>                            
         
-        <a href="admin.php?page=writte" data-toggle="tooltip" title="rédiger article">
+        <a href="index.php?page=writte" data-toggle="tooltip" title="rédiger article">
             <?php  
             if(isset($_GET['page']) && $_GET['page']=='writte'){
             ?>
@@ -54,7 +54,7 @@
             ?>                                     
         </a>
         
-        <a href="admin.php?page=config" data-toggle="tooltip" title="configuration">
+        <a href="index.php?page=config" data-toggle="tooltip" title="configuration">
             <?php  
             if(isset($_GET['page']) && $_GET['page']=='config'){
             ?>

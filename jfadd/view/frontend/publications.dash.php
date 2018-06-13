@@ -45,7 +45,7 @@
             } 
             ?>
             
-            <td><?=substr($post['title'],0,35)?></td>
+            <td><?=htmlspecialchars(substr($post['title'],0,35))?></td>
             <td><?= html_entity_decode(substr($post['content'],0,100))?>...</td>
             <td><?= date("d/m/Y H:i ",strtotime($post['date']))?></td>
             <td>
@@ -65,13 +65,13 @@
                             <div class="modal-body">
                                 <p><strong><?=$post['title']?></strong> <span class="size text-muted">Le <?= date("d/m/Y H:i ",strtotime($post['date']))?></span></p>
                                 <p><em><?=substr($post['content'],0,300)?>...</em></p>
-                                <p class="size1 text-right">De <span class="text-info"><?=$post['name']?></span></p>
+                                <p class="size1 text-right">De <span class="text-info"><?=htmlspecialchars($post['name'])?></span></p>
                             </div>
                             
                             <div class="modal-footer">
                                 <form method="post">
-                                    <a href="admin.php?page=updaptePublishPost&amp;id=<?php echo $post['id'] ?>"><button type="button" class="btn btn-success">Publier</button></a>
-                                    <a href="admin.php?page=updapteNoPublishPost&amp;id=<?php echo $post['id'] ?>"><button type="button" class="btn btn-danger">Retirer</button></a>
+                                    <a href="index.php?page=updaptePublishPost&amp;id=<?php echo $post['id'] ?>"><button type="button" class="btn btn-success">Publier</button></a>
+                                    <a href="index.php?page=updapteNoPublishPost&amp;id=<?php echo $post['id'] ?>"><button type="button" class="btn btn-danger">Retirer</button></a>
                                 </form>
                             </div>           
                         </div>
@@ -99,7 +99,7 @@
                             
                             <div class="modal-footer">
                                 <form method="post">    
-                                    <a href="admin.php?page=deletepost&amp;id=<?=$post['id']?>"<button type="button" name="delete" class="btn btn-danger">Oui</button></a>
+                                    <a href="index.php?page=deletepost&amp;id=<?=$post['id']?>"><button type="button" name="delete" class="btn btn-danger">Oui</button></a>
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Non</button>
                                 </form>
                             </div>                                       
@@ -107,10 +107,10 @@
                     </div>
                 </div>
                 <!-- bouton see post dashboard-->
-                <a href="admin.php?page=modifpost&amp;id=<?php echo $post['id'] ?>"><i class="fas fa-pencil-alt fa-lg text-warning" title="Modifier"></i></a>
+                <a href="index.php?page=modifpost&amp;id=<?php echo $post['id'] ?>"><i class="fas fa-pencil-alt fa-lg text-warning" title="Modifier"></i></a>
 
                 <!-- button modification post -->
-                <a href="admin.php?page=adminpost&amp;id=<?php echo $post['id'] ?>"><i  class="fas fa-eye fa-lg text-primary" title="Voir l' article" ></i></a>
+                <a href="index.php?page=adminpost&amp;id=<?php echo $post['id'] ?>"><i  class="fas fa-eye fa-lg text-primary" title="Voir l' article" ></i></a>
             </td>                          
             <?php
             }
@@ -127,7 +127,7 @@
                 <?php if (isset($_GET["p"]) && $_GET['p']>1 && $_GET['p']<=$nbPages) {
                     ?>
                 <li class="page-item">
-                    <a class="page-link" href="admin.php?page=publications.dash&amp;p=<?=$_GET["p"]-1?>" aria-label="Previous">
+                    <a class="page-link" href="index.php?page=publications.dash&amp;p=<?=$_GET["p"]-1?>" aria-label="Previous">
                         <span aria-hidden="true">&laquo;</span>
                         <span class="sr-only">Previous</span>
                     </a>
@@ -137,7 +137,7 @@
                 else{
                 ?>
                 <li class="page-item">
-                    <a class="page-link" href="admin.php?page=publications.dash&amp;p=<?=$_GET["p"]=1?>" aria-label="Previous">
+                    <a class="page-link" href="index.php?page=publications.dash&amp;p=<?=$_GET["p"]=1?>" aria-label="Previous">
                         <span aria-hidden="true">&laquo;</span>
                         <span class="sr-only">Previous</span>
                     </a>
@@ -149,7 +149,7 @@
                 <?php
                 for($i=1; $i<=$nbPages; $i++){
                 ?>
-                    <li class="page-item"><a class="page-link" href="admin.php?page=publications.dash&amp;p=<?=$i?>"><?=$i?></a></li>
+                    <li class="page-item"><a class="page-link" href="index.php?page=publications.dash&amp;p=<?=$i?>"><?=$i?></a></li>
                 <?php
                 }
                 ?>
@@ -158,7 +158,7 @@
                 if (isset($_GET["p"]) && $_GET['p']>0 && $_GET['p']<$nbPages) {                           
                 ?>
                 <li class="page-item">
-                <a class="page-link" href="admin.php?page=publications.dash&amp;p=<?=$_GET["p"]+1?>" aria-label="Next">
+                <a class="page-link" href="index.php?page=publications.dash&amp;p=<?=$_GET["p"]+1?>" aria-label="Next">
                     <span aria-hidden="true">&raquo;</span>
                     <span class="sr-only">Next</span>
                 </a>
@@ -168,7 +168,7 @@
                 else{
                     ?>
                         <li class="page-item">
-                <a class="page-link" href="admin.php?page=publications.dash&amp;p=<?=$_GET["p"]=$nbPages?>" aria-label="Next">
+                <a class="page-link" href="index.php?page=publications.dash&amp;p=<?=$_GET["p"]=$nbPages?>" aria-label="Next">
                     <span aria-hidden="true">&raquo;</span>
                     <span class="sr-only">Next</span>
                 </a>;

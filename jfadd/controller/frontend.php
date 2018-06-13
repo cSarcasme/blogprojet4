@@ -52,7 +52,7 @@ require_once('model/configManager.php');
             throw new Exception('Impossible de supprimer le commentaire !');
         }
         else {
-        header('Location:admin.php?page=dashboard');
+        header('Location:index.php?page=dashboard');
         }
     }
     /*update comment validation*/
@@ -64,7 +64,7 @@ require_once('model/configManager.php');
             throw new Exception('Impossible de update le commentaire !');
         }
         else {
-        header('Location:admin.php?page=dashboard');
+        header('Location:index.php?page=dashboard');
         }
     }
 /*page publication of dashboard*/
@@ -98,7 +98,7 @@ require_once('model/configManager.php');
             throw new Exception('Impossible de retirer la publication !');
         }
         else {
-            header('Location:admin.php?page=publications.dash&p=1');
+            header('Location:index.php?page=publications.dash&p=1');
         }
     }
     /*update publish post */
@@ -110,7 +110,7 @@ require_once('model/configManager.php');
             throw new Exception('Impossible de publier l\' article !');
         }
         else {
-            header('Location:admin.php?page=publications.dash&p=1');
+            header('Location:index.php?page=publications.dash&p=1');
         }
     }
     /*delete post and comment from the post*/
@@ -123,7 +123,7 @@ require_once('model/configManager.php');
             throw new Exception('Impossible de supprimer l\' article !');
         }
         else {
-            header('Location:admin.php?page=publications.dash&p=1');
+            header('Location:index.php?page=publications.dash&p=1');
         }
             
     }
@@ -151,7 +151,7 @@ require_once('model/configManager.php');
             throw new Exception('Impossible de supprimer l\' article !');
         }
         else {
-            header('Location:admin.php?page=admins.dash');
+            header('Location:index.php?page=admins.dash');
         }
     }
 /*page  post view of file admin*/
@@ -184,7 +184,7 @@ require_once('model/configManager.php');
         $modifUpdatePost=new ced\Blog\projet4\modifPostManager();
         $affectedLines = $modifUpdatePost->modifPost($postId, $title, $content, $posted);
         
-        header('Location:admin.php?page=publications.dash&p=1');
+        header('Location:index.php?page=publications.dash&p=1');
     }
 /*page deconnexion*/
     function deconnexion(){
@@ -198,7 +198,7 @@ require_once('model/configManager.php');
         $postManager=new ced\Blog\projet4\writteManager();
         $affectedLines = $postManager->postPost($title, $content,$writer, $image, $posted);
         
-        header('Location:admin.php?page=publications.dash&p=1');
+        header('Location:index.php?page=publications.dash&p=1');
     }
 /* page configuration */
     function config(){
@@ -214,7 +214,7 @@ require_once('model/configManager.php');
         function add_Admins($name,$pseudo,$email,$password){
             $configManager=new ced\Blog\projet4\configManager();
             $affectedLines = $configManager->addAdmins($name,$pseudo,$email,$password);
-            header('Location:admin.php?page=admins.dash');
+            header('Location:index.php?page=admins.dash');
         }
         require('view/frontend/config.php');
     }

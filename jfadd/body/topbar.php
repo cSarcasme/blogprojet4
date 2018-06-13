@@ -1,7 +1,7 @@
 
 <!--top bar connexion-->
 <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#161C27;">
-    <a class="navbar-brand" href="admin.php?page=dashboard">
+    <a class="navbar-brand" href="index.php?page=dashboard">
         <img src="../public/images/jf-logo.jpg" width="30" height="30" class="d-inline-block align-top" alt=""> Jean Forteroche
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">

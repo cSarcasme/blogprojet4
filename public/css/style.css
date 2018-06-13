@@ -85,9 +85,34 @@
     }
 
     /*cards home*/
-    #cardHome{
+    .cardHome{
       height:430px;
     }
 
+@media (max-width: 575.98px) {
+.view img{		
+		height:300px;
+		width:100%;
+	}	
+}
+	
+@media (min-width: 576px) {
+.view img{		
+		height:400px;
+	}	
+}
+
+@media (min-width: 767.98px) {
+		
+}
+
+@media (min-width: 992px) {
+	
+	.view img{		
+			height:230px;
+		}
+}
+@media (min-width: 1200px) {
 
 
+}

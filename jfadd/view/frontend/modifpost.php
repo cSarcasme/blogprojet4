@@ -18,8 +18,8 @@
                 <?php
                 /* isset type submit form condition */
                     if(isset($_POST['postArticle'])){
-                        $title=htmlspecialchars($_POST['titre']);
-                        $content=($_POST['contenu']);               	
+                        $title=trim($_POST['titre']);
+                        $content=trim($_POST['contenu']);               	
                         $content = preg_replace("/\s+/", " ", $content);
                         $posted=(isset($_POST['checkbox']));
                         $errors=array();

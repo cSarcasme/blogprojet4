@@ -11,7 +11,7 @@
             </div>
         </div>
         <div class="row justify-content-center mt-2">
-            <a href="admin.php?page=publications.dash&amp;p=1"><button type="button"   class="btn btn-secondary">Publications</button></a>
+            <a href="index.php?page=publications.dash&amp;p=1"><button type="button"   class="btn btn-secondary">Publications</button></a>
         </div>    
     </div>
     <!-- Comment-->
@@ -24,7 +24,7 @@
             </div>
         </div>
         <div class="row justify-content-center mt-2">
-            <a href="admin.php?page=dashboard"><button type="button"  class="btn btn-info">Commentaires</button></a>
+            <a href="index.php?page=dashboard"><button type="button"  class="btn btn-info">Commentaires</button></a>
         </div>               
     </div>
     <!-- Admin-->
@@ -33,11 +33,11 @@
             <div class="card-header"></div>
             <div class="card-body">
                 <h5 class="card-title text-center text-white"><strong>Administrateurs</strong></h5>
-                <h3 class="card-text cardDashboard text-white"><?= $countAdmins['idAdmins'] ?></K>
+                <h3 class="card-text cardDashboard text-white"><?= $countAdmins['idAdmins'] ?></h3>
             </div>
         </div>
         <div class="row justify-content-center mt-2">
-            <a href="admin.php?page=admins.dash"><button type="button" class="btn btn-warning text-white" style="background-color:#F7CD71;" >Administrateurs</button></a>                  
+            <a href="index.php?page=admins.dash"><button type="button" class="btn btn-warning text-white" style="background-color:#F7CD71;" >Administrateurs</button></a>                  
         </div>
     </div>
 </div>           

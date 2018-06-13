@@ -15,7 +15,7 @@
             <div class="d-flex mb-3 ">
                 <div class="mr-auto">Retrouvez tous vos nouveaux commentaires</div>
                 <div class=" size3 badge badge-danger mr-3" id="commentNewSignal"><?= $countCommentsSeenSignal['idComments'] ?>/SA </div>
-                <div class=" size3 badge badge-warning mr-3" id="commentNewSignal"><?= $tableCountCommentsSeenToValid['idComments'] ?>/NV </div>
+                <div class=" size3 badge badge-primary mr-3" id="commentNewSignal"><?= $tableCountCommentsSeenToValid['idComments'] ?>/NV </div>
                 <div class="size3 badge badge-success" id="commentNew"><?= $countCommentsSeen['idComments'] ?>/V</div>
             </div>
         </div>
@@ -47,7 +47,7 @@
                 ?>
                 
                 <td><?=$comment['title']?></td>
-                <td><?= substr($comment['comment'],0,50)?></td>
+                <td><?= htmlspecialchars(substr($comment['comment'],0,50))?></td>
                 <td>
                     <!-- bouton update comment dashboard-->
                     <a href="#" data-toggle="modal" data-target="#mymodalok<?php echo $comment['id'] ?>"><i class="fas fa-check fa-lg text-success" title="Valider"></i></a>
@@ -63,14 +63,14 @@
                                 </div>
                                 
                                 <div class="modal-body">
-                                    <p>Par <strong><?=$comment['name']?></strong> <span class="size text-muted">Le <?= date("d/m/Y H:i ",strtotime(htmlspecialchars($comment['date'])))?></span></p>
-                                    <p><em><?=$comment['comment']?></em></p>
-                                    <p class="size1 text-right">De <span class="text-info"><?=$comment['email']?></span></p>
+                                    <p>Par <strong><?=htmlspecialchars($comment['name'])?></strong> <span class="size text-muted">Le <?= date("d/m/Y H:i ",strtotime(htmlspecialchars($comment['date'])))?></span></p>
+                                    <p><em><?=htmlspecialchars($comment['comment'])?></em></p>
+                                    <p class="size1 text-right">De <span class="text-info"><?=htmlspecialchars($comment['email'])?></span></p>
                                 </div>
                                 
                                 <div class="modal-footer">
                                     <form method="post">
-                                        <a href="admin.php?page=updateValidComment&amp;id=<?=$comment['id']?>"><button type="button" class="btn btn-success">Oui</button></a>
+                                        <a href="index.php?page=updateValidComment&amp;id=<?=$comment['id']?>"><button type="button" class="btn btn-success">Oui</button></a>
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Non</button>
                                     </form>
                                 </div>
@@ -94,13 +94,13 @@
                                 
                                 <div class="modal-body">
                                     <p>Par <strong><?=$comment['name']?></strong> <span class="size text-muted">Le <?= date("d/m/Y H:i ",strtotime(htmlspecialchars($comment['date'])))?></span></p>
-                                    <p><em><?=$comment['comment']?></em></p>
+                                    <p><em><?=htmlspecialchars($comment['comment'])?></em></p>
                                     <p class="size1 text-right">De <span class="text-info"><?=$comment['email']?></span></p>
                                 </div>
                                 
                                 <div class="modal-footer">
                                     <form method="post">    
-                                        <a href="admin.php?page=deleteComment&amp;id=<?=$comment['id']?>"><button type="button"class="btn btn-danger">Oui</button></a>
+                                        <a href="index.php?page=deleteComment&amp;id=<?=$comment['id']?>"><button type="button"class="btn btn-danger">Oui</button></a>
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Non</button>
                                     </form>
                                 </div>
@@ -152,7 +152,7 @@
                         <?php if (isset($_GET["p"]) && $_GET['p']>1 && $_GET['p']<=$nbPages) {
                             ?>
                         <li class="page-item">
-                            <a class="page-link" href="admin.php?page=dashboard&amp;p=<?=$_GET["p"]-1?>" aria-label="Previous">
+                            <a class="page-link" href="index.php?page=dashboard&amp;p=<?=$_GET["p"]-1?>" aria-label="Previous">
                                 <span aria-hidden="true">&laquo;</span>
                                 <span class="sr-only">Previous</span>
                             </a>
@@ -162,7 +162,7 @@
                         else{
                         ?>
                         <li class="page-item">
-                            <a class="page-link" href="admin.php?page=dashboard&amp;p=<?=$_GET["p"]=1?>" aria-label="Previous">
+                            <a class="page-link" href="index.php?page=dashboard&amp;p=<?=$_GET["p"]=1?>" aria-label="Previous">
                                 <span aria-hidden="true">&laquo;</span>
                                 <span class="sr-only">Previous</span>
                             </a>
@@ -174,7 +174,7 @@
                         <?php
                         for($i=1; $i<=$nbPages; $i++){
                         ?>
-                            <li class="page-item"><a class="page-link" href="admin.php?page=dashboard&amp;p=<?=$i?>"><?=$i?></a></li>
+                            <li class="page-item"><a class="page-link" href="index.php?page=dashboard&amp;p=<?=$i?>"><?=$i?></a></li>
                         <?php
                         }
                         ?>
@@ -183,7 +183,7 @@
                         if (isset($_GET["p"]) && $_GET['p']>0 && $_GET['p']<$nbPages) {                           
                         ?>
                         <li class="page-item">
-                        <a class="page-link" href="admin.php?page=dashboard&amp;p=<?=$_GET["p"]+1?>" aria-label="Next">
+                        <a class="page-link" href="index.php?page=dashboard&amp;p=<?=$_GET["p"]+1?>" aria-label="Next">
                             <span aria-hidden="true">&raquo;</span>
                             <span class="sr-only">Next</span>
                         </a>
@@ -193,7 +193,7 @@
                         else{
                             ?>
                                 <li class="page-item">
-                        <a class="page-link" href="admin.php?page=dashboard&amp;p=<?=$_GET["p"]=$nbPages?>" aria-label="Next">
+                        <a class="page-link" href="index.php?page=dashboard&amp;p=<?=$_GET["p"]=$nbPages?>" aria-label="Next">
                             <span aria-hidden="true">&raquo;</span>
                             <span class="sr-only">Next</span>
                         </a>

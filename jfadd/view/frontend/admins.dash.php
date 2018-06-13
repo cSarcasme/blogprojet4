@@ -56,7 +56,7 @@
                                     
                                     <div class="modal-footer">
                                         <form method="post">    
-                                            <a href="admin.php?page=deleteadmin&amp;id=<?=$data['id']?>"><button type="button"class="btn btn-danger">Oui</button></a>
+                                            <a href="index.php?page=deleteadmin&amp;id=<?=$data['id']?>"><button type="button"class="btn btn-danger">Oui</button></a>
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Non</button>
                                         </form>
                                     </div>
