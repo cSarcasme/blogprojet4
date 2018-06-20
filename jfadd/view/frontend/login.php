@@ -5,7 +5,10 @@ if(isset($_SESSION['email'])){
 }
  ob_start()
 ?> 
-
+ <header>
+      
+	<?php include('body/topbar.php'); ?>
+</header>
 <div class="container">
 
     <div class="row justify-content-center">

@@ -2,10 +2,12 @@
 <?php $title = "Config";
  ob_start();
 ?>
-
+</header>
+     <?php include('body/topbar2.php');?>     
+</header>
 <session>
     <div class="container">
-        <h2 class="my-4">Ajouter un nouvelle Administrateur</h2>
+        <h2 class="my-4">Ajouter un nouvel Administrateur</h2>
         <?php
         /*isset type submit fom form add admin*/
             if(isset($_POST['submit'])){

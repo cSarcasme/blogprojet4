@@ -43,11 +43,11 @@ require_once('model/commentManager.php');
         $commentManager=new ced\Blog\projet4\commentManager();
         $affectedLines = $commentManager->postComment($postId,$name, $email, $comment);
         
-        if ($post == false) {
+        if ($affectedLines == false) {
             throw new Exception('impossible de poster le commentaire');
         }
         else {
-            header('Location:index.php?page=post&id=' . $postId);
+            header('Location:index.php?page=post&id='.$postId);
         }
     }
     /*update signal abuse comment*/
@@ -55,10 +55,10 @@ require_once('model/commentManager.php');
         $commentManager=new ced\Blog\projet4\commentManager();
         $affectedLines = $commentManager -> updateComment($post_id);
 
-        if ($post == false) {
+        if ($affectedLines == false) {
             throw new Exception('impossible de signaler le commentaire');
         }
         else {
-        header('Location:index.php?page=post&id=' . $postId);
+        header('Location:index.php?page=post&id='.$postId);
         }
     }

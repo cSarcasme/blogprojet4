@@ -5,7 +5,7 @@ try{
 	$pages = scandir('view/frontend/');
 	if (isset($_GET['page'])) {
 		if($_GET['page'] != 'login' && !isset($_SESSION['email'])){
-			header('Location:admin.php?page=login');
+			header('Location:index.php?page=login');
 		}
 	/* page center of dashboard with comment*/
 		elseif ($_GET['page'] == 'dashboard') {

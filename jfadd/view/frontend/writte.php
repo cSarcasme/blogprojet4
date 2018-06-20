@@ -2,6 +2,9 @@
 <?php $title = "Article";
  ob_start();
 ?>
+</header>
+     <?php include('body/topbar2.php');?>     
+</header>
 <session>
     <div class="container">
 		<h1 class="text-center mt-4 mb-4">POSTER UN ARTICLE</h1>

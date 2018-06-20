@@ -2,7 +2,9 @@
 <?php $title = "chapitre"?>
 
 <?php ob_start(); ?>   
-    
+</header>
+     <?php include('body/topbar2.php');?>     
+</header>
 <section  class="postContentImage" id="postImageChapter">
         <!--<div class="container-fluid">   -->
             <div class="postContentImage" >

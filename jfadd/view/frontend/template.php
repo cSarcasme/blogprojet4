@@ -24,18 +24,7 @@
     <![endif]-->
   </head>
   <body>
-  <header>
-      
-      <?php
-      if(!isset($_SESSION['email'])){
-        include('body/topbar.php');
-      }
-      else{
-        include('body/topbar2.php');
-      }
-      ?>
-      
-  </header>
+
   <main>
   <?= $content ?>
   </main>

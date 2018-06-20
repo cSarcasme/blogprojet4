@@ -1,6 +1,7 @@
 <!--page error -->
 <?php $title = "Error"; ?>
 <?php ob_start(); ?>
+<?php http_response_code(404); ?>
 <div class="container">
     <h1>Aie aie aie .....</h1>
     <?= $e->getMessage() ?>

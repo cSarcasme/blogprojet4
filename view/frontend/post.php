@@ -31,7 +31,7 @@
             </div>
             <div class="col-lg-3  col-md-12 ">
                 <aside class="well mt-4 px-3 " id="auteur">                
-                    <img src="public/images/Jean_forteroche.jpg" class="rounded-circle mx-auto d-block" alt="Jean forteroche" width="150" height="100">    
+                    <img src="public/images/Jean_forteroche.jpg" class="rounded-circle mx-auto d-block" alt="Jean forteroche" width="130" height="120">    
                     <p>Jean forteroche est un écrivain français né en 1965 en Normandie. Il connaît son premier grand succès en 2011 avec Nymphéas Noirs. Ses polars se vendent à des milliers d'exemplaires, le classant 2e auteur le plus vendu de France en 2017. 
                         Aujourdh'ui il nous propose son nouveau roman nouvelle <strong>BILLET POUR L' ALASKA</strong> au format web .
                     </p>

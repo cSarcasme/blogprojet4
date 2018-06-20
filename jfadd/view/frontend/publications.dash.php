@@ -2,7 +2,9 @@
 <?php $title = "Tableau de bord";
  ob_start();
 ?>
-
+</header>
+     <?php include('body/topbar2.php');?>     
+</header>
 <session>
     <div class="container">
         <?php include('body/dashboard.php')?>
